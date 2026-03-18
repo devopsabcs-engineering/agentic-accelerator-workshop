@@ -1,0 +1,189 @@
+# ============================================================================
+# Code Quality Workflow
+# ============================================================================
+# This workflow enforces code quality standards on every pull request:
+#   - Lint: runs ESLint to catch style and correctness issues.
+#   - Type Check: runs the TypeScript compiler in check-only mode.
+#   - Test & Coverage: runs Jest tests and compares line coverage against the
+#     configured threshold. Low-coverage files are reported as SARIF findings.
+#
+# The coverage SARIF output appears in the GitHub Security tab under the
+# "code-quality/coverage/" category.
+#
+# Lab references: Lab 05, Lab 07, Lab 08
+# ============================================================================
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Code Quality
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  security-events: write
+  contents: read
+
+env:
+  COVERAGE_THRESHOLD: 80
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sample-app
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run linter
+        run: npm run lint
+
+  type-check:
+    name: Type Check
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sample-app
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run type check
+        run: npx tsc --noEmit
+
+  test:
+    name: Test & Coverage
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sample-app
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests with coverage
+        run: npm run test:ci
+
+      - name: Coverage threshold check
+        id: coverage
+        run: |
+          COVERAGE_FILE="coverage/coverage-summary.json"
+          if [ ! -f "$COVERAGE_FILE" ]; then
+            echo "::warning::Coverage summary not found at $COVERAGE_FILE"
+            exit 0
+          fi
+
+          TOTAL_PCT=$(jq '.total.lines.pct' "$COVERAGE_FILE")
+          echo "coverage=$TOTAL_PCT" >> "$GITHUB_OUTPUT"
+          echo "Line coverage: ${TOTAL_PCT}%"
+
+          if [ "$(echo "$TOTAL_PCT < ${{ env.COVERAGE_THRESHOLD }}" | bc -l)" -eq 1 ]; then
+            echo "::error::Line coverage ${TOTAL_PCT}% is below threshold ${{ env.COVERAGE_THRESHOLD }}%"
+            exit 1
+          fi
+
+      - name: Convert coverage to SARIF
+        if: always()
+        run: |
+          COVERAGE_FILE="coverage/coverage-summary.json"
+          SARIF_FILE="coverage-results.sarif"
+
+          cat > convert-coverage.js << 'SCRIPT'
+          const fs = require('fs');
+          const coverageFile = process.argv[2];
+          const threshold = parseInt(process.argv[3], 10);
+          const sarifFile = process.argv[4];
+
+          if (!fs.existsSync(coverageFile)) {
+            console.log('No coverage file found, skipping SARIF conversion');
+            process.exit(0);
+          }
+
+          const coverage = JSON.parse(fs.readFileSync(coverageFile, 'utf8'));
+          const results = [];
+          const rules = [
+            {
+              id: 'coverage-threshold-violation',
+              shortDescription: { text: 'File coverage below threshold' },
+              fullDescription: { text: `Line coverage is below the ${threshold}% threshold` },
+              help: { text: `Increase test coverage to at least ${threshold}%`, markdown: `Increase test coverage to at least **${threshold}%** by adding unit tests for uncovered code paths.` },
+              defaultConfiguration: { level: 'warning' },
+              properties: { tags: ['code-quality', 'coverage'] }
+            },
+            {
+              id: 'uncovered-function',
+              shortDescription: { text: 'Function has zero coverage' },
+              fullDescription: { text: 'Function is not covered by any test' },
+              help: { text: 'Add tests for this function', markdown: 'Add **unit tests** covering happy path and error cases for this function.' },
+              defaultConfiguration: { level: 'warning' },
+              properties: { tags: ['code-quality', 'coverage'] }
+            }
+          ];
+
+          for (const [filePath, data] of Object.entries(coverage)) {
+            if (filePath === 'total') continue;
+            if (data.lines && data.lines.pct < threshold) {
+              results.push({
+                ruleId: 'coverage-threshold-violation',
+                level: 'warning',
+                message: { text: `Line coverage is ${data.lines.pct}% (threshold: ${threshold}%)` },
+                locations: [{
+                  physicalLocation: {
+                    artifactLocation: { uri: filePath.replace(/^\//, '') },
+                    region: { startLine: 1 }
+                  }
+                }],
+                partialFingerprints: { primaryLocationLineHash: filePath }
+              });
+            }
+          }
+
+          const sarif = {
+            '$schema': 'https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json',
+            version: '2.1.0',
+            runs: [{
+              tool: { driver: { name: 'coverage-analyzer', rules } },
+              results,
+              automationDetails: { id: 'code-quality/coverage/' }
+            }]
+          };
+
+          fs.writeFileSync(sarifFile, JSON.stringify(sarif, null, 2));
+          console.log(`Wrote ${results.length} findings to ${sarifFile}`);
+          SCRIPT
+
+          node convert-coverage.js "$COVERAGE_FILE" "${{ env.COVERAGE_THRESHOLD }}" "$SARIF_FILE"
+
+      - name: Upload coverage SARIF
+        uses: github/codeql-action/upload-sarif@v4
+        if: always() && hashFiles('coverage-results.sarif') != ''
+        continue-on-error: true
+        with:
+          sarif_file: coverage-results.sarif
+          category: code-quality/coverage/

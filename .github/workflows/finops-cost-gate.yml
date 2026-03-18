@@ -1,0 +1,186 @@
+# ============================================================================
+# FinOps Cost Gate Workflow
+# ============================================================================
+# This workflow estimates the monthly cloud cost of infrastructure changes
+# using Infracost. It runs on pull requests that modify Terraform (.tf),
+# Bicep (.bicep), or ARM template (.json) files.
+#
+# How it works:
+#   1. Generates a cost baseline from the target branch.
+#   2. Computes the cost diff introduced by the pull request.
+#   3. Posts a cost summary comment on the PR.
+#   4. Converts the cost report to SARIF and uploads it to the GitHub
+#      Security tab under the "finops-finding/" category.
+#   5. Fails the workflow if estimated cost exceeds the monthly budget.
+#
+# Prerequisites:
+#   - Set the INFRACOST_API_KEY secret in your repository settings.
+#   - Optionally set the FINOPS_MONTHLY_BUDGET variable (defaults to $500).
+#
+# Lab references: Lab 09
+# ============================================================================
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: FinOps Cost Gate
+
+on:
+  pull_request:
+    paths:
+      - '**/*.tf'
+      - '**/*.bicep'
+      - '**/*.json'
+
+permissions:
+  contents: read
+  pull-requests: write
+  security-events: write
+
+env:
+  MONTHLY_BUDGET: ${{ vars.FINOPS_MONTHLY_BUDGET || '500' }}
+  INFRACOST_API_KEY: ${{ secrets.INFRACOST_API_KEY }}
+
+jobs:
+  cost-estimate:
+    name: FinOps — IaC Cost Estimation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Infracost
+        uses: infracost/actions/setup@v3
+        with:
+          api-key: ${{ env.INFRACOST_API_KEY }}
+
+      - name: Generate Infracost baseline
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch origin ${{ github.event.pull_request.base.ref }} --depth=1
+          git checkout ${{ github.event.pull_request.base.ref }}
+          infracost breakdown --path . --format json --out-file /tmp/infracost-base.json || true
+          git checkout ${{ github.sha }}
+
+      - name: Generate Infracost diff
+        run: |
+          infracost diff \
+            --path . \
+            --compare-to /tmp/infracost-base.json \
+            --format json \
+            --out-file /tmp/infracost-diff.json || \
+          infracost breakdown \
+            --path . \
+            --format json \
+            --out-file /tmp/infracost-diff.json
+
+      - name: Post PR comment
+        if: github.event_name == 'pull_request'
+        run: |
+          infracost comment github \
+            --path /tmp/infracost-diff.json \
+            --repo ${{ github.repository }} \
+            --pull-request ${{ github.event.pull_request.number }} \
+            --github-token ${{ github.token }} \
+            --behavior update
+
+      - name: Convert cost report to SARIF
+        id: sarif
+        run: |
+          cat > convert-cost.js << 'SCRIPT'
+          const fs = require('fs');
+          const budget = parseInt(process.argv[2], 10);
+          const inputFile = process.argv[3];
+          const outputFile = process.argv[4];
+
+          let data;
+          try {
+            data = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
+          } catch {
+            console.log('No Infracost output found, creating empty SARIF');
+            data = { totalMonthlyCost: '0', projects: [] };
+          }
+
+          const monthlyCost = parseFloat(data.totalMonthlyCost || '0');
+          const results = [];
+          const rules = [
+            {
+              id: 'budget-overspend',
+              shortDescription: { text: 'Estimated cost exceeds monthly budget' },
+              fullDescription: { text: `Estimated monthly cost exceeds the configured budget of $${budget}` },
+              help: { text: `Reduce resource costs to stay within the $${budget}/month budget`, markdown: `Reduce resource costs to stay within the **$${budget}/month** budget. Consider:\n- Smaller SKUs\n- Reserved instances\n- Spot instances\n- Removing unused resources` },
+              defaultConfiguration: { level: 'error' },
+              properties: { tags: ['finops', 'cost'] }
+            },
+            {
+              id: 'cost-increase',
+              shortDescription: { text: 'Resource cost increase detected' },
+              fullDescription: { text: 'A resource change increases estimated monthly cost' },
+              help: { text: 'Review the cost increase and confirm it is justified', markdown: 'Review the cost increase and confirm it is **justified** by the feature requirements.' },
+              defaultConfiguration: { level: 'warning' },
+              properties: { tags: ['finops', 'cost'] }
+            }
+          ];
+
+          if (monthlyCost > budget) {
+            results.push({
+              ruleId: 'budget-overspend',
+              level: 'error',
+              message: { text: `Estimated monthly cost $${monthlyCost.toFixed(2)} exceeds budget $${budget}` },
+              locations: [{
+                physicalLocation: {
+                  artifactLocation: { uri: '.' },
+                  region: { startLine: 1 }
+                }
+              }],
+              partialFingerprints: { primaryLocationLineHash: `budget-${monthlyCost.toFixed(0)}` }
+            });
+          }
+
+          for (const project of (data.projects || [])) {
+            for (const diff of (project.diff?.resources || [])) {
+              if (parseFloat(diff.monthlyCost || '0') > 0) {
+                results.push({
+                  ruleId: 'cost-increase',
+                  level: 'warning',
+                  message: { text: `${diff.name}: +$${parseFloat(diff.monthlyCost).toFixed(2)}/month` },
+                  locations: [{
+                    physicalLocation: {
+                      artifactLocation: { uri: project.path || '.' },
+                      region: { startLine: 1 }
+                    }
+                  }],
+                  partialFingerprints: { primaryLocationLineHash: `cost-${diff.name}` }
+                });
+              }
+            }
+          }
+
+          const sarif = {
+            '$schema': 'https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json',
+            version: '2.1.0',
+            runs: [{
+              tool: { driver: { name: 'finops-cost-gate', rules } },
+              results,
+              automationDetails: { id: 'finops-finding/' }
+            }]
+          };
+
+          fs.writeFileSync(outputFile, JSON.stringify(sarif, null, 2));
+          console.log(`Wrote ${results.length} findings to ${outputFile}`);
+          process.exit(monthlyCost > budget ? 1 : 0);
+          SCRIPT
+
+          node convert-cost.js "${{ env.MONTHLY_BUDGET }}" /tmp/infracost-diff.json finops-results.sarif
+        continue-on-error: true
+
+      - name: Upload FinOps SARIF
+        uses: github/codeql-action/upload-sarif@v4
+        if: always() && hashFiles('finops-results.sarif') != ''
+        with:
+          sarif_file: finops-results.sarif
+          category: finops-finding/
+
+      - name: Budget gate
+        run: |
+          if [ "${{ steps.sarif.outcome }}" = "failure" ]; then
+            echo "::error::Estimated monthly cost exceeds budget threshold of \$${{ env.MONTHLY_BUDGET }}"
+            exit 1
+          fi

@@ -1,0 +1,179 @@
+# ============================================================================
+# Security Scan Workflow
+# ============================================================================
+# This workflow runs multiple security scanning tools against the codebase:
+#   - SCA (Software Composition Analysis): checks dependencies for known
+#     vulnerabilities and generates an SBOM (Software Bill of Materials).
+#   - SAST (Static Application Security Testing): uses CodeQL to find
+#     security bugs in JavaScript/TypeScript source code.
+#   - IaC (Infrastructure as Code): scans Bicep/Terraform templates for
+#     misconfigurations using Checkov, Trivy, and Terrascan.
+#   - Container: scans Docker images for known CVEs using Trivy.
+#   - DAST (Dynamic Application Security Testing): runs a ZAP baseline scan
+#     against a live URL (when configured).
+#
+# All findings are uploaded as SARIF to the GitHub Security tab so you can
+# view them under Security > Code scanning alerts.
+#
+# Lab references: Lab 03, Lab 07, Lab 08
+# ============================================================================
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Security Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  security-events: write
+  contents: read
+  pull-requests: read
+
+env:
+  SARIF_UPLOAD_ACTION: github/codeql-action/upload-sarif@v4
+
+jobs:
+  sca:
+    name: SCA — Dependency Review & SBOM
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        continue-on-error: true
+        with:
+          fail-on-severity: high
+          comment-summary-in-pr: always
+
+      - name: Generate SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          format: spdx-json
+          output-file: sbom.spdx.json
+
+      - name: Upload SBOM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: sbom.spdx.json
+
+  sast:
+    name: SAST — CodeQL Analysis
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [javascript-typescript]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v4
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: codeql/${{ matrix.language }}
+
+  iac:
+    name: IaC — Microsoft Security DevOps
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Microsoft Security DevOps
+        uses: microsoft/security-devops-action@v1
+        id: msdo
+        with:
+          categories: IaC
+          tools: checkov,trivy,terrascan
+
+      - name: Upload IaC SARIF
+        uses: github/codeql-action/upload-sarif@v4
+        if: always()
+        with:
+          sarif_file: ${{ steps.msdo.outputs.sarifFile }}
+          category: iac-scanning/
+
+  container:
+    name: Container — Trivy Image Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for Dockerfile
+        id: check
+        run: |
+          if find . -name 'Dockerfile' -type f | grep -q .; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "No Dockerfile found — skipping container scan"
+          fi
+
+      - name: Build container image
+        if: steps.check.outputs.found == 'true'
+        run: |
+          DOCKERFILE=$(find . -name 'Dockerfile' -type f | head -1)
+          if [ -n "$DOCKERFILE" ]; then
+            docker build -t scan-target:latest -f "$DOCKERFILE" .
+          fi
+
+      - name: Run Trivy container scan
+        if: steps.check.outputs.found == 'true'
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: scan-target:latest
+          format: sarif
+          output: trivy-container.sarif
+          severity: CRITICAL,HIGH
+
+      - name: Upload container SARIF
+        uses: github/codeql-action/upload-sarif@v4
+        if: always() && steps.check.outputs.found == 'true'
+        with:
+          sarif_file: trivy-container.sarif
+          category: container-scanning/
+
+  dast:
+    name: DAST — ZAP Baseline Scan
+    runs-on: ubuntu-latest
+    if: vars.DAST_TARGET_URL != ''
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.14.0
+        with:
+          target: ${{ vars.DAST_TARGET_URL }}
+          cmd_options: '-J zap-report.json'
+          allow_issue_writing: false
+
+      - name: Convert ZAP JSON to SARIF
+        if: always()
+        run: |
+          npm install -g @microsoft/sarif-multitool || true
+          if command -v sarif-multitool &> /dev/null && [ -f zap-report.json ]; then
+            sarif-multitool convert zap-report.json --tool ZAP --output zap-results.sarif
+          fi
+
+      - name: Upload DAST SARIF
+        uses: github/codeql-action/upload-sarif@v4
+        if: always() && hashFiles('zap-results.sarif') != ''
+        with:
+          sarif_file: zap-results.sarif
+          category: dast/

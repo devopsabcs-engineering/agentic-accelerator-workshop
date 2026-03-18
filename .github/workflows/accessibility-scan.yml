@@ -1,0 +1,95 @@
+# ============================================================================
+# Accessibility Scan Workflow
+# ============================================================================
+# This workflow scans web pages for WCAG 2.2 accessibility violations using
+# automated tools such as axe-core and accessibility-checker. It runs on pull
+# requests and on a weekly schedule.
+#
+# Findings are converted to SARIF format and uploaded to the GitHub Security
+# tab so you can track accessibility issues alongside security alerts.
+#
+# Key concepts:
+#   - A11Y_THRESHOLD: minimum score to pass without warnings
+#   - A11Y_FAIL_THRESHOLD: score below which the workflow fails
+#   - SARIF category: accessibility-scan/<label>
+#
+# Lab references: Lab 04, Lab 07, Lab 08
+# ============================================================================
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Accessibility Scan
+
+on:
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 6 * * 1' # Weekly on Monday at 06:00 UTC
+
+permissions:
+  security-events: write
+  contents: read
+
+env:
+  A11Y_THRESHOLD: 80
+  A11Y_FAIL_THRESHOLD: 70
+
+jobs:
+  a11y-scan:
+    name: Accessibility — Three-Engine Scanner
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        scan-url:
+          - url: ${{ vars.A11Y_SCAN_URL_PRIMARY || 'http://localhost:3000' }}
+            label: primary
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install scanning dependencies
+        run: |
+          npm install -g @axe-core/cli accessibility-checker
+          npx playwright install --with-deps chromium
+
+      - name: Run accessibility scan
+        id: scan
+        run: |
+          npx a11y-scan scan \
+            --url "${{ matrix.scan-url.url }}" \
+            --threshold ${{ env.A11Y_THRESHOLD }} \
+            --format sarif \
+            --output a11y-results.sarif
+        continue-on-error: true
+
+      - name: Upload a11y SARIF
+        uses: github/codeql-action/upload-sarif@v4
+        if: always() && hashFiles('a11y-results.sarif') != ''
+        with:
+          sarif_file: a11y-results.sarif
+          category: accessibility-scan/${{ matrix.scan-url.label }}
+
+      - name: Threshold gate
+        if: always()
+        run: |
+          if [ -f a11y-results.sarif ]; then
+            CRITICAL_COUNT=$(jq '[.runs[].results[] | select(.level == "error")] | length' a11y-results.sarif 2>/dev/null || echo "0")
+            echo "Critical/serious findings: $CRITICAL_COUNT"
+
+            if [ "$CRITICAL_COUNT" -gt 0 ]; then
+              echo "::error::Accessibility scan found $CRITICAL_COUNT critical/serious violations"
+              exit 1
+            fi
+
+            SCORE=$(jq '.runs[0].properties.score // 100' a11y-results.sarif 2>/dev/null || echo "100")
+            echo "Accessibility score: $SCORE"
+
+            if [ "$(echo "$SCORE < ${{ env.A11Y_FAIL_THRESHOLD }}" | bc -l 2>/dev/null || echo 0)" -eq 1 ]; then
+              echo "::error::Accessibility score $SCORE is below minimum threshold ${{ env.A11Y_FAIL_THRESHOLD }}"
+              exit 1
+            fi
+          fi
