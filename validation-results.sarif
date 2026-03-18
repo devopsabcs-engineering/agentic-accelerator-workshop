@@ -1,0 +1,254 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "agent-validator",
+          "version": "1.0.0",
+          "informationUri": "https://github.com/devopsabcs-engineering/agentic-devsecops-framework",
+          "rules": [
+            {
+              "id": "missing-model",
+              "shortDescription": {
+                "text": "missing model"
+              }
+            },
+            {
+              "id": "missing-sarif-reference",
+              "shortDescription": {
+                "text": "missing sarif reference"
+              }
+            }
+          ]
+        }
+      },
+      "automationDetails": {
+        "id": "agent-validation/"
+      },
+      "results": [
+        {
+          "ruleId": "missing-model",
+          "level": "warning",
+          "message": {
+            "text": "Missing optional field: model"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "agents/a11y-detector.agent.md",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationFingerprint": "b92c532ccb32dc97"
+          }
+        },
+        {
+          "ruleId": "missing-model",
+          "level": "warning",
+          "message": {
+            "text": "Missing optional field: model"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "agents/a11y-resolver.agent.md",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationFingerprint": "4dff212975791b9a"
+          }
+        },
+        {
+          "ruleId": "missing-model",
+          "level": "warning",
+          "message": {
+            "text": "Missing optional field: model"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "agents/code-quality-detector.agent.md",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationFingerprint": "1bbf8ccc488d2977"
+          }
+        },
+        {
+          "ruleId": "missing-model",
+          "level": "warning",
+          "message": {
+            "text": "Missing optional field: model"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "agents/cost-analysis-agent.agent.md",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationFingerprint": "211401c26d4853eb"
+          }
+        },
+        {
+          "ruleId": "missing-model",
+          "level": "warning",
+          "message": {
+            "text": "Missing optional field: model"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "agents/cost-anomaly-detector.agent.md",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationFingerprint": "7505627bcf666cf8"
+          }
+        },
+        {
+          "ruleId": "missing-model",
+          "level": "warning",
+          "message": {
+            "text": "Missing optional field: model"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "agents/cost-optimizer-agent.agent.md",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationFingerprint": "d7c2a12e51f8403e"
+          }
+        },
+        {
+          "ruleId": "missing-model",
+          "level": "warning",
+          "message": {
+            "text": "Missing optional field: model"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "agents/deployment-cost-gate-agent.agent.md",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationFingerprint": "2ea12e9c0a6a6211"
+          }
+        },
+        {
+          "ruleId": "missing-model",
+          "level": "warning",
+          "message": {
+            "text": "Missing optional field: model"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "agents/finops-governance-agent.agent.md",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationFingerprint": "1d9b980a64d21620"
+          }
+        },
+        {
+          "ruleId": "missing-model",
+          "level": "warning",
+          "message": {
+            "text": "Missing optional field: model"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "agents/test-generator.agent.md",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationFingerprint": "798a96be197be29a"
+          }
+        },
+        {
+          "ruleId": "missing-sarif-reference",
+          "level": "warning",
+          "message": {
+            "text": "Agent \"SecurityPlanCreator\" body does not mention SARIF"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "agents/security-plan-creator.agent.md",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationFingerprint": "fcf3bcb9d935eee9"
+          }
+        },
+        {
+          "ruleId": "missing-sarif-reference",
+          "level": "warning",
+          "message": {
+            "text": "Agent \"TestGenerator\" body does not mention SARIF"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "agents/test-generator.agent.md",
+                  "uriBaseId": "%SRCROOT%"
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationFingerprint": "1d3265a51259ec98"
+          }
+        }
+      ]
+    }
+  ]
+}

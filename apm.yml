@@ -1,0 +1,111 @@
+# APM — Agent Package Manager manifest
+# Declares all agentic dependencies for the Agentic DevSecOps Framework.
+# See: https://github.com/microsoft/apm
+
+name: agentic-devsecops-framework
+version: 1.0.0
+description: "Agentic DevSecOps Framework — GHAS + GHCP + MDC"
+author: devopsabcs-engineering
+
+dependencies:
+
+  # ── Security Agents ──────────────────────────────────────────────────
+  security-agent:
+    path: agents/security-agent.agent.md
+    description: "Comprehensive security scanning agent — OWASP Top 10, CWE mapping, SARIF output"
+
+  security-reviewer-agent:
+    path: agents/security-reviewer-agent.agent.md
+    description: "PR-triggered diff-scoped security reviewer with approve/request-changes output"
+
+  security-plan-creator:
+    path: agents/security-plan-creator.agent.md
+    description: "Threat model and security test plan generator aligned to STRIDE and OWASP"
+
+  pipeline-security-agent:
+    path: agents/pipeline-security-agent.agent.md
+    description: "CI/CD pipeline configuration scanner for GitHub Actions and Azure Pipelines"
+
+  iac-security-agent:
+    path: agents/iac-security-agent.agent.md
+    description: "Infrastructure-as-Code scanner for Terraform, Bicep, and ARM templates"
+
+  supply-chain-security-agent:
+    path: agents/supply-chain-security-agent.agent.md
+    description: "Dependency and supply chain security scanner — SCA, SBOM, license compliance"
+
+  # ── Accessibility Agents ─────────────────────────────────────────────
+  a11y-detector:
+    path: agents/a11y-detector.agent.md
+    description: "Accessibility violation detector — axe-core, HTML CodeSniffer, Pa11y engines"
+
+  a11y-resolver:
+    path: agents/a11y-resolver.agent.md
+    description: "Automated accessibility remediation agent generating fix patches"
+
+  # ── Code Quality Agents ──────────────────────────────────────────────
+  code-quality-detector:
+    path: agents/code-quality-detector.agent.md
+    description: "Code coverage and quality gate agent — coverage-to-SARIF mapping"
+
+  test-generator:
+    path: agents/test-generator.agent.md
+    description: "Test case generator targeting uncovered code paths"
+
+  # ── FinOps / Cost Analysis Agents ────────────────────────────────────
+  cost-analysis-agent:
+    path: agents/cost-analysis-agent.agent.md
+    description: "Azure Cost Management data retrieval and spending analysis"
+
+  finops-governance-agent:
+    path: agents/finops-governance-agent.agent.md
+    description: "FinOps governance policy enforcement — tagging, budgets, alerts"
+
+  cost-anomaly-detector:
+    path: agents/cost-anomaly-detector.agent.md
+    description: "Anomaly detection for unexpected Azure spending spikes"
+
+  cost-optimizer-agent:
+    path: agents/cost-optimizer-agent.agent.md
+    description: "Cost optimization recommendations from Azure Advisor"
+
+  deployment-cost-gate-agent:
+    path: agents/deployment-cost-gate-agent.agent.md
+    description: "IaC deployment cost estimation and budget gating"
+
+  # ── Instructions ─────────────────────────────────────────────────────
+  wcag22-rules:
+    path: instructions/wcag22-rules.instructions.md
+    description: "WCAG 2.2 Level AA rule definitions for accessibility scanning"
+
+  a11y-remediation:
+    path: instructions/a11y-remediation.instructions.md
+    description: "Accessibility remediation patterns and fix strategies"
+
+  code-quality:
+    path: instructions/code-quality.instructions.md
+    description: "Code quality rules — coverage thresholds, complexity metrics, linting"
+
+  # ── Prompts ──────────────────────────────────────────────────────────
+  a11y-scan:
+    path: prompts/a11y-scan.prompt.md
+    description: "Prompt template for accessibility scanning workflow"
+
+  a11y-fix:
+    path: prompts/a11y-fix.prompt.md
+    description: "Prompt template for accessibility remediation workflow"
+
+  # ── Skills ───────────────────────────────────────────────────────────
+  a11y-scan-skill:
+    path: skills/a11y-scan/SKILL.md
+    description: "On-demand accessibility scanning skill"
+
+  security-scan-skill:
+    path: skills/security-scan/SKILL.md
+    description: "On-demand security scanning skill"
+
+security:
+  audit:
+    on-install: true
+    on-compile: true
+    severity-threshold: critical
