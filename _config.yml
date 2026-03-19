@@ -1,3 +1,4 @@
 theme: minima
 title: "Agentic DevSecOps Workshop"
 description: "Learn to use AI-powered DevSecOps agents — from zero to hero"
+baseurl: "/agentic-devsecops-workshop"
