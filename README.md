@@ -1,8 +1,3 @@
----
-title: "Agentic DevSecOps Workshop"
-description: "Learn to use AI-powered DevSecOps agents — from zero to hero"
----
-
 # Agentic DevSecOps Workshop
 
 > Learn to use AI-powered DevSecOps agents — from zero to hero
