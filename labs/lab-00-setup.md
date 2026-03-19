@@ -119,4 +119,4 @@ Before proceeding, verify:
 
 ## Next Steps
 
-Proceed to [Lab 01 — Explore the Sample App](lab-01).
+Proceed to [Lab 01 — Explore the Sample App](lab-01.md).

@@ -10,7 +10,7 @@ description: "Run the security-reviewer, iac-security, and supply-chain-security
 |---|---|
 | **Duration** | 40 minutes |
 | **Level** | Intermediate |
-| **Prerequisites** | [Lab 00](lab-00-setup), [Lab 01](lab-01), [Lab 02](lab-02) |
+| **Prerequisites** | [Lab 00](lab-00-setup.md), [Lab 01](lab-01.md), [Lab 02](lab-02.md) |
 
 ## Learning Objectives
 
@@ -130,4 +130,4 @@ Before proceeding, verify:
 
 ## Next Steps
 
-Proceed to [Lab 04 — Accessibility Scanning with Copilot Agents](lab-04).
+Proceed to [Lab 04 — Accessibility Scanning with Copilot Agents](lab-04.md).

@@ -10,7 +10,7 @@ description: "Design and build a custom GitHub Copilot agent with YAML frontmatt
 |---|---|
 | **Duration** | 45 minutes |
 | **Level** | Advanced |
-| **Prerequisites** | [Lab 00](lab-00-setup) through [Lab 08](lab-08) |
+| **Prerequisites** | [Lab 00](lab-00-setup.md) through [Lab 08](lab-08.md) |
 
 ## Learning Objectives
 

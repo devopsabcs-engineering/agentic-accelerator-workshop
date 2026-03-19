@@ -10,7 +10,7 @@ description: "Distinguish between agents, skills, instructions, and prompts. Lea
 |---|---|
 | **Duration** | 20 minutes |
 | **Level** | Beginner |
-| **Prerequisites** | [Lab 01](lab-01) |
+| **Prerequisites** | [Lab 01](lab-01.md) |
 
 ## Learning Objectives
 
@@ -147,4 +147,4 @@ Before proceeding, verify:
 
 ## Next Steps
 
-Proceed to [Lab 03](lab-03).
+Proceed to [Lab 03](lab-03.md).
