@@ -65,24 +65,7 @@ Choose the tier that fits your schedule:
 
 ## Lab Dependency Diagram
 
-```mermaid
-graph LR
-    L00[Lab 00: Setup] --> L01[Lab 01: Sample App]
-    L01 --> L02[Lab 02: Agents & Skills]
-    L02 --> L03[Lab 03: Security]
-    L02 --> L04[Lab 04: Accessibility]
-    L02 --> L05[Lab 05: Code Quality]
-    L03 --> L06[Lab 06: SARIF]
-    L04 --> L06
-    L05 --> L06
-    L06 --> L07[Lab 07: GitHub Actions]
-    L07 --> L08[Lab 08: Security Tab]
-    L07 --> L09[Lab 09: FinOps]
-    L08 --> L10[Lab 10: Remediation]
-    L10 --> L11[Lab 11: Custom Agent]
-
-    style L09 stroke-dasharray: 5 5
-```
+![Lab dependency diagram showing progression from Lab 00 through Lab 11](images/lab-dependency-diagram.png)
 
 Labs 03, 04, and 05 can be completed in any order. Lab 09 is optional and does
 not block later labs.
