@@ -3,7 +3,7 @@ export default function Header() {
     <header className="bg-gray-800 text-white p-4">
       {/* INTENTIONAL-A11Y-VIOLATION: Broken heading hierarchy - skips h2 */}
       {/* WCAG 1.3.1 (Level A): Heading levels should increase by one */}
-      <h1 className="text-2xl font-bold">DevSecOps Store</h1>
+      <h1 className="text-2xl font-bold">Accelerator Store</h1>
       <h3 className="text-sm mt-1">Your trusted online marketplace</h3>
 
       <nav className="mt-2">

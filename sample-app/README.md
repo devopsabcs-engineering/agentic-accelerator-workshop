@@ -1,15 +1,15 @@
 ---
 title: "Sample Application: Intentional Issues for Agent Testing"
-description: "Next.js demo application with intentional security, accessibility, code quality, and FinOps issues for testing Agentic DevSecOps Framework agents"
+description: "Next.js demo application with intentional security, accessibility, code quality, and FinOps issues for testing Agentic Accelerator Framework agents"
 ms.date: 2026-03-17
 ---
 
 > [!CAUTION]
-> This application contains **intentional vulnerabilities, accessibility violations, code quality issues, and cost governance gaps** for testing DevSecOps agents. **Never deploy this application to production.**
+> This application contains **intentional vulnerabilities, accessibility violations, code quality issues, and cost governance gaps** for testing Accelerator agents. **Never deploy this application to production.**
 
 ## Purpose
 
-This sample Next.js application provides a realistic testing target for all agent domains in the Agentic DevSecOps Framework. Each intentional issue is clearly marked with comment tags so agents can be validated against known findings.
+This sample Next.js application provides a realistic testing target for all agent domains in the Agentic Accelerator Framework. Each intentional issue is clearly marked with comment tags so agents can be validated against known findings.
 
 ## Comment Markers
 

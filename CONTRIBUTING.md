@@ -1,11 +1,11 @@
 ---
 title: "Contributing"
-description: "Guidelines for contributing to the Agentic DevSecOps Workshop"
+description: "Guidelines for contributing to the Agentic Accelerator Workshop"
 ---
 
 # Contributing
 
-Thank you for your interest in the Agentic DevSecOps Workshop.
+Thank you for your interest in the Agentic Accelerator Workshop.
 
 ## Workshop Template Repository
 
@@ -19,7 +19,7 @@ new exercises are welcome here.
 
 If you want to contribute to the underlying agents, skills, or scanning logic,
 open a pull request in the
-[Agentic DevSecOps Framework](https://github.com/devopsabcs-engineering/agentic-devsecops-framework)
+[Agentic Accelerator Framework](https://github.com/devopsabcs-engineering/agentic-accelerator-framework)
 repository instead. Changes to the framework are periodically synced into this
 workshop repo.
 

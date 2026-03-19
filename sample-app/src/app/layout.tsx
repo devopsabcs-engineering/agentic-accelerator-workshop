@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "DevSecOps Sample App",
-  description: "Sample application for Agentic DevSecOps Framework testing",
+  title: "Accelerator Sample App",
+  description: "Sample application for Agentic Accelerator Framework testing",
 };
 
 export default function RootLayout({

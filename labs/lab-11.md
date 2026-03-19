@@ -208,7 +208,7 @@ Before completing the workshop, verify:
 
 ## Congratulations
 
-You have completed all labs in the Agentic DevSecOps Workshop. You can now:
+You have completed all labs in the Agentic Accelerator Workshop. You can now:
 
 * Set up and configure the framework agents
 * Run security, accessibility, and code quality scans

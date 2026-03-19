@@ -6,7 +6,7 @@
 param location string = resourceGroup().location
 
 @description('Application name prefix')
-param appName string = 'devsecops-sample'
+param appName string = 'accelerator-sample'
 
 // INTENTIONAL-VULNERABILITY: SQL admin password as plaintext parameter
 // Should use Azure Key Vault reference: @secure() with Key Vault

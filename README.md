@@ -1,14 +1,14 @@
 ---
-title: "Agentic DevSecOps Workshop"
-description: "Learn to use AI-powered DevSecOps agents — from zero to hero"
+title: "Agentic Accelerator Workshop"
+description: "Learn to use AI-powered Accelerator agents — from zero to hero"
 ---
 
-# Agentic DevSecOps Workshop
+# Agentic Accelerator Workshop
 
-> Learn to use AI-powered DevSecOps agents — from zero to hero
+> Learn to use AI-powered Accelerator agents — from zero to hero
 
 This hands-on workshop teaches you how to integrate GitHub Copilot custom agents
-into your DevSecOps workflows. You will configure security scanners, accessibility
+into your Accelerator workflows. You will configure security scanners, accessibility
 checkers, code quality analyzers, and FinOps cost gates, all powered by AI agents
 that produce SARIF-compliant findings visible in the GitHub Security tab.
 
@@ -81,7 +81,7 @@ not block later labs.
 ## Credits
 
 This workshop is built on the
-[Agentic DevSecOps Framework](https://github.com/devopsabcs-engineering/agentic-devsecops-framework),
+[Agentic Accelerator Framework](https://github.com/devopsabcs-engineering/agentic-accelerator-framework),
 which provides the agents, skills, instructions, and sample application used
 throughout the labs.
 

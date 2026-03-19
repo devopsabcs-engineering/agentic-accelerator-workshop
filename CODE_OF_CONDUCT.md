@@ -1,6 +1,6 @@
 ---
 title: "Code of Conduct"
-description: "Microsoft Open Source Code of Conduct for the Agentic DevSecOps Workshop"
+description: "Microsoft Open Source Code of Conduct for the Agentic Accelerator Workshop"
 ---
 
 # Code of Conduct

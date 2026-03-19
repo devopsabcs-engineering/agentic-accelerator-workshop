@@ -1,10 +1,10 @@
 # APM — Agent Package Manager manifest
-# Declares all agentic dependencies for the Agentic DevSecOps Framework.
+# Declares all agentic dependencies for the Agentic Accelerator Framework.
 # See: https://github.com/microsoft/apm
 
-name: agentic-devsecops-framework
+name: agentic-accelerator-framework
 version: 1.0.0
-description: "Agentic DevSecOps Framework — GHAS + GHCP + MDC"
+description: "Agentic Accelerator Framework — GHAS + GHCP + MDC"
 author: devopsabcs-engineering
 
 dependencies:

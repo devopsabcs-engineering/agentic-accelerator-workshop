@@ -1,11 +1,11 @@
 ---
-description: "Repo-wide conventions for the Agentic DevSecOps Workshop"
+description: "Repo-wide conventions for the Agentic Accelerator Workshop"
 applyTo: "**"
 ---
 
 ## Workshop Purpose
 
-This repository is a hands-on workshop that teaches developers to use AI-powered DevSecOps agents from the Agentic DevSecOps Framework. Students work through 12 progressive labs covering security, accessibility, code quality, and FinOps domains.
+This repository is a hands-on workshop that teaches developers to use AI-powered Accelerator agents from the Agentic Accelerator Framework. Students work through 12 progressive labs covering security, accessibility, code quality, and FinOps domains.
 
 ## Important Context
 

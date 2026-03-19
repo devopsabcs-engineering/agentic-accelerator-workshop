@@ -1,8 +1,8 @@
 {
-  "name": "devsecops-sample-app",
+  "name": "accelerator-sample-app",
   "version": "0.1.0",
   "private": true,
-  "description": "Sample Next.js application with intentional issues for Agentic DevSecOps Framework agent testing",
+  "description": "Sample Next.js application with intentional issues for Agentic Accelerator Framework agent testing",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

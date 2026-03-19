@@ -18,7 +18,7 @@ By the end of this lab, you will be able to:
 
 * Understand the SARIF v2.1.0 JSON structure and its key fields
 * Navigate SARIF findings using the SARIF Viewer extension in VS Code
-* Explain the category prefix system used by the Agentic DevSecOps Framework
+* Explain the category prefix system used by the Agentic Accelerator Framework
 * Connect SARIF output to the GitHub Security tab ingestion pipeline
 
 ## Exercises
@@ -73,7 +73,7 @@ The SARIF Viewer extension provides a graphical interface for navigating finding
 
 ### Exercise 6.3: SARIF Category Prefixes
 
-The Agentic DevSecOps Framework uses category prefixes in the `automationDetails.id` field to organize findings by domain.
+The Agentic Accelerator Framework uses category prefixes in the `automationDetails.id` field to organize findings by domain.
 
 1. Review the category prefix system:
 

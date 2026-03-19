@@ -77,21 +77,21 @@ After installation, confirm all four extensions appear as enabled in the Extensi
 
 ### Exercise 0.3: Create Your Workshop Repository
 
-1. Navigate to <https://github.com/devopsabcs-engineering/agentic-devsecops-workshop> in your browser.
+1. Navigate to <https://github.com/devopsabcs-engineering/agentic-accelerator-workshop> in your browser.
 2. Click **Use this template** and then select **Create a new repository**.
-3. Set the repository name to `agentic-devsecops-workshop` under your personal GitHub account.
+3. Set the repository name to `agentic-accelerator-workshop` under your personal GitHub account.
 4. Set visibility to **Public** (required for GitHub Security tab features in later labs).
 5. Click **Create repository**.
 6. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/<your-username>/agentic-devsecops-workshop.git
+   git clone https://github.com/<your-username>/agentic-accelerator-workshop.git
    ```
 
 7. Open the repository in VS Code:
 
    ```bash
-   code agentic-devsecops-workshop
+   code agentic-accelerator-workshop
    ```
 
 ### Exercise 0.4: Verify Copilot Chat

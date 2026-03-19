@@ -1,7 +1,7 @@
 theme: jekyll-theme-minimal
-title: "Agentic DevSecOps Workshop"
-description: "Learn to use AI-powered DevSecOps agents — from zero to hero"
-baseurl: "/agentic-devsecops-workshop"
+title: "Agentic Accelerator Workshop"
+description: "Learn to use AI-powered Accelerator agents — from zero to hero"
+baseurl: "/agentic-accelerator-workshop"
 plugins:
   - jekyll-relative-links
 relative_links:
