@@ -2,3 +2,8 @@ theme: jekyll-theme-minimal
 title: "Agentic DevSecOps Workshop"
 description: "Learn to use AI-powered DevSecOps agents — from zero to hero"
 baseurl: "/agentic-devsecops-workshop"
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true

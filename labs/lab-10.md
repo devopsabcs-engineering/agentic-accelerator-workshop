@@ -1,6 +1,5 @@
 ---
 layout: default
-permalink: /labs/lab-10
 title: "Lab 10 - Agent Remediation Workflows"
 description: "Complete full Detect-Fix-Verify cycles using security, accessibility, and code quality agents to remediate findings and confirm the fixes."
 ---
@@ -11,7 +10,7 @@ description: "Complete full Detect-Fix-Verify cycles using security, accessibili
 |---|---|
 | **Duration** | 45 minutes |
 | **Level** | Advanced |
-| **Prerequisites** | [Lab 03](lab-03), [Lab 04](lab-04), or [Lab 05](lab-05) (at least one scanning lab) |
+| **Prerequisites** | [Lab 03](lab-03.md), [Lab 04](lab-04.md), or [Lab 05](lab-05.md) (at least one scanning lab) |
 
 ## Learning Objectives
 
@@ -176,4 +175,4 @@ Before proceeding, verify:
 
 ## Next Steps
 
-Proceed to [Lab 11 — Creating Your Own Custom Agent](lab-11).
+Proceed to [Lab 11 — Creating Your Own Custom Agent](lab-11.md).
