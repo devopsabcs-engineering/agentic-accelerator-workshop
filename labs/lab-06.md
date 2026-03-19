@@ -1,4 +1,6 @@
 ---
+layout: default
+permalink: /labs/lab-06.md
 title: "Lab 06 - Understanding SARIF Output"
 description: "Explore the SARIF v2.1.0 JSON structure, navigate findings with the SARIF Viewer extension, learn category prefixes and severity mapping, and understand how GitHub ingests SARIF results."
 ---

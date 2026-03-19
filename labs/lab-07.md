@@ -1,4 +1,6 @@
 ---
+layout: default
+permalink: /labs/lab-07.md
 title: "Lab 07 - Setting Up GitHub Actions Pipelines"
 description: "Review the workshop GitHub Actions workflows, enable Actions in your repository, trigger workflows by opening a pull request, and monitor execution in the Actions tab."
 ---

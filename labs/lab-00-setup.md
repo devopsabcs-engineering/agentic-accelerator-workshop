@@ -1,4 +1,6 @@
 ---
+layout: default
+permalink: /labs/lab-00-setup.md
 title: "Lab 00 - Prerequisites and Environment Setup"
 description: "Install required tools, VS Code extensions, create your workshop repository from the template, and verify GitHub Copilot Chat."
 ---

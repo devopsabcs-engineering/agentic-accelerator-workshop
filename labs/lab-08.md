@@ -1,4 +1,6 @@
 ---
+layout: default
+permalink: /labs/lab-08.md
 title: "Lab 08 - Viewing Results in GitHub Security Tab"
 description: "Navigate the GitHub Security tab, filter Code Scanning alerts by tool and severity, view finding details with source code context, explore Dependabot alerts, and manage alert lifecycle."
 ---

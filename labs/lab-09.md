@@ -1,4 +1,6 @@
 ---
+layout: default
+permalink: /labs/lab-09.md
 title: "Lab 09 - FinOps Agents and Azure Cost Governance"
 description: "Use FinOps agents to estimate infrastructure costs, enforce tag compliance, apply budget gates, and explore right-sizing recommendations for the sample app."
 ---
