@@ -1,4 +1,5 @@
 ---
+permalink: /labs/lab-06
 title: "Lab 06 - Understanding SARIF Output"
 description: "Explore the SARIF v2.1.0 JSON structure, navigate findings with the SARIF Viewer extension, learn category prefixes and severity mapping, and understand how GitHub ingests SARIF results."
 ---
@@ -9,7 +10,7 @@ description: "Explore the SARIF v2.1.0 JSON structure, navigate findings with th
 |---|---|
 | **Duration** | 30 minutes |
 | **Level** | Intermediate |
-| **Prerequisites** | At least one of [Lab 03](lab-03.md), [Lab 04](lab-04.md), or [Lab 05](lab-05.md) |
+| **Prerequisites** | At least one of [Lab 03](lab-03), [Lab 04](lab-04), or [Lab 05](lab-05) |
 
 ## Learning Objectives
 
@@ -131,4 +132,4 @@ Before proceeding, verify:
 
 ## Next Steps
 
-Proceed to [Lab 07](lab-07.md) to enable GitHub Actions workflows and trigger them with a pull request.
+Proceed to [Lab 07](lab-07) to enable GitHub Actions workflows and trigger them with a pull request.

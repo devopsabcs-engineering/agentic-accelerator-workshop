@@ -1,4 +1,5 @@
 ---
+permalink: /labs/lab-04
 title: "Lab 04 - Accessibility Scanning with Copilot Agents"
 description: "Run the a11y-detector to find WCAG 2.2 Level AA violations, use the a11y-scan prompt for targeted scanning, and try the a11y-resolver handoff for automated fixes."
 ---
@@ -9,7 +10,7 @@ description: "Run the a11y-detector to find WCAG 2.2 Level AA violations, use th
 |---|---|
 | **Duration** | 35 minutes |
 | **Level** | Intermediate |
-| **Prerequisites** | [Lab 00](lab-00-setup.md), [Lab 01](lab-01.md), [Lab 02](lab-02.md) |
+| **Prerequisites** | [Lab 00](lab-00-setup), [Lab 01](lab-01), [Lab 02](lab-02) |
 
 ## Learning Objectives
 
@@ -119,4 +120,4 @@ Before proceeding, verify:
 
 ## Next Steps
 
-Proceed to [Lab 05 — Code Quality Analysis with Copilot Agents](lab-05.md).
+Proceed to [Lab 05 — Code Quality Analysis with Copilot Agents](lab-05).

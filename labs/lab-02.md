@@ -1,4 +1,5 @@
 ---
+permalink: /labs/lab-02
 title: "Lab 02 - Understanding Agents, Skills, and Instructions"
 description: "Distinguish between agents, skills, instructions, and prompts. Learn the orchestrator and detector/resolver design patterns."
 ---
@@ -9,7 +10,7 @@ description: "Distinguish between agents, skills, instructions, and prompts. Lea
 |---|---|
 | **Duration** | 20 minutes |
 | **Level** | Beginner |
-| **Prerequisites** | [Lab 01](lab-01.md) |
+| **Prerequisites** | [Lab 01](lab-01) |
 
 ## Learning Objectives
 
@@ -148,4 +149,4 @@ Before proceeding, verify:
 
 ## Next Steps
 
-Proceed to [Lab 03](lab-03.md).
+Proceed to [Lab 03](lab-03).

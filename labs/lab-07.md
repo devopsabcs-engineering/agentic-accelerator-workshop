@@ -1,4 +1,5 @@
 ---
+permalink: /labs/lab-07
 title: "Lab 07 - Setting Up GitHub Actions Pipelines"
 description: "Review the workshop GitHub Actions workflows, enable Actions in your repository, trigger workflows by opening a pull request, and monitor execution in the Actions tab."
 ---
@@ -9,7 +10,7 @@ description: "Review the workshop GitHub Actions workflows, enable Actions in yo
 |---|---|
 | **Duration** | 40 minutes |
 | **Level** | Intermediate |
-| **Prerequisites** | [Lab 00](lab-00-setup.md) through [Lab 06](lab-06.md) |
+| **Prerequisites** | [Lab 00](lab-00-setup) through [Lab 06](lab-06) |
 
 ## Learning Objectives
 
@@ -134,4 +135,4 @@ Before proceeding, verify:
 
 ## Next Steps
 
-Proceed to [Lab 08](lab-08.md) to explore the uploaded SARIF results in the GitHub Security tab.
+Proceed to [Lab 08](lab-08) to explore the uploaded SARIF results in the GitHub Security tab.
