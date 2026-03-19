@@ -46,8 +46,7 @@ In this exercise you use the Security Reviewer Agent to scan the sample app sour
 
 4. Note the severity level assigned to each finding. Critical and High findings represent immediate risks that should be addressed before deployment.
 
-> [!NOTE]
-> Screenshot placeholder: `![Security reviewer agent output in Copilot Chat](../images/lab-03/lab-03-security-agent-findings.png)`
+![Security reviewer agent output in Copilot Chat](../images/lab-03/lab-03-security-agent-findings.png)
 
 ### Exercise 3.2: Infrastructure Security Scanning
 
@@ -69,8 +68,7 @@ Next, scan the infrastructure-as-code template for security misconfigurations.
 
 3. For each finding, note the line number in `main.bicep` and the recommended remediation.
 
-> [!NOTE]
-> Screenshot placeholder: `![IaC security agent findings for main.bicep](../images/lab-03/lab-03-iac-scan.png)`
+![IaC security agent findings for main.bicep](../images/lab-03/lab-03-iac-scan.png)
 
 ### Exercise 3.3: Supply Chain Security
 
@@ -91,8 +89,7 @@ Now analyze the project dependencies for known vulnerabilities and license risks
 
 3. Note which dependencies the agent flags and the recommended upgrade paths.
 
-> [!NOTE]
-> Screenshot placeholder: `![Supply chain agent findings](../images/lab-03/lab-03-supply-chain.png)`
+![Supply chain agent findings](../images/lab-03/lab-03-supply-chain.png)
 
 ### Exercise 3.4: Compare Findings Against Known Issues
 
@@ -115,8 +112,7 @@ In Lab 01 you manually reviewed the sample app and identified intentional vulner
    * Did you spot anything in Lab 01 that the agents did not flag?
    * How does automated agent scanning complement manual code review?
 
-> [!NOTE]
-> Screenshot placeholder: `![Findings compared to known issues](../images/lab-03/lab-03-comparison.png)`
+![Findings compared to known issues](../images/lab-03/lab-03-comparison.png)
 
 ## Verification Checkpoint
 
