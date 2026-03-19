@@ -43,7 +43,7 @@ Select a domain for your custom agent. The agent will analyze source code or con
 
 Author the agent definition with YAML frontmatter and structured body sections.
 
-1. Create a new file at `agents/my-custom-agent.agent.md`.
+1. Create a new file at `.github/agents/my-custom-agent.agent.md`.
 2. Add the following YAML frontmatter at the top of the file. Adjust the `name` and `description` to match your chosen domain:
 
    ```yaml
@@ -115,7 +115,7 @@ Author the agent definition with YAML frontmatter and structured body sections.
    ```
 
 4. Save the file.
-5. Review existing agents in the `agents/` directory for additional patterns and conventions. For example, open `agents/security-reviewer-agent.agent.md` to see how tools and handoffs are configured.
+5. Review existing agents in the `.github/agents/` directory for additional patterns and conventions. For example, open `.github/agents/security-reviewer-agent.agent.md` to see how tools and handoffs are configured.
 
 > [!NOTE]
 > Screenshot placeholder: `![Custom agent file open in VS Code editor](../images/lab-11/lab-11-agent-file.png)`
@@ -158,8 +158,8 @@ Add a domain knowledge skill file that enriches your agent with reference data.
 
 1. Create the skill directory and file:
 
-   * Directory: `skills/my-custom-scan/`
-   * File: `skills/my-custom-scan/SKILL.md`
+   * Directory: `.github/skills/my-custom-scan/`
+   * File: `.github/skills/my-custom-scan/SKILL.md`
 
 2. Add content that provides domain-specific knowledge. For performance analysis, this might include:
 
@@ -201,10 +201,10 @@ Add a domain knowledge skill file that enriches your agent with reference data.
 
 Before completing the workshop, verify:
 
-* [ ] You created `agents/my-custom-agent.agent.md` with valid YAML frontmatter
+* [ ] You created `.github/agents/my-custom-agent.agent.md` with valid YAML frontmatter
 * [ ] The agent definition includes Persona, Scope, Detection Protocol, Output Format, and Severity Classification sections
 * [ ] The agent responds with structured output when invoked in Copilot Chat
-* [ ] (Optional) You created a companion skill in `skills/my-custom-scan/SKILL.md`
+* [ ] (Optional) You created a companion skill in `.github/skills/my-custom-scan/SKILL.md`
 
 ## Congratulations
 

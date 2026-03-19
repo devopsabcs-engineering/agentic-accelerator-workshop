@@ -25,7 +25,7 @@ By the end of this lab, you will be able to:
 
 ### Exercise 2.1: Examine an Agent File
 
-Open `agents/security-reviewer-agent.agent.md` in VS Code and study its structure.
+Open `.github/agents/security-reviewer-agent.agent.md` in VS Code and study its structure.
 
 Every agent file has two parts:
 
@@ -61,7 +61,7 @@ The framework uses two design patterns to organize agents. Open the files below 
 
 **Pattern 1: Orchestrator with sub-agents**
 
-Open `agents/security-agent.agent.md`. Notice the `handoffs` section in its frontmatter:
+Open `.github/agents/security-agent.agent.md`. Notice the `handoffs` section in its frontmatter:
 
 ```yaml
 handoffs:
@@ -77,7 +77,7 @@ The Security Agent acts as an orchestrator. It does not perform deep analysis it
 
 **Pattern 2: Detector and resolver pair**
 
-Open `agents/a11y-detector.agent.md`. Notice its handoff:
+Open `.github/agents/a11y-detector.agent.md`. Notice its handoff:
 
 ```yaml
 handoffs:
@@ -93,13 +93,13 @@ This creates a detect → fix → verify cycle.
 
 The framework has three supporting artifact types beyond agents. Open one example of each:
 
-1. **Skill** — Open `skills/security-scan/SKILL.md`.
+1. **Skill** — Open `.github/skills/security-scan/SKILL.md`.
    A skill is a domain knowledge package. Agents load skills when they need deep context about a topic (OWASP categories, CWE mappings, severity classification). Skills are invoked on demand, not always active.
 
-2. **Instruction** — Open `instructions/code-quality.instructions.md`.
+2. **Instruction** — Open `.github/instructions/code-quality.instructions.md`.
    An instruction file contains always-on rules. The `applyTo` glob in its frontmatter (`**/*.ts,**/*.js,...`) tells Copilot to apply these rules automatically whenever matching files are edited. Instructions do not need to be invoked; they are active by default.
 
-3. **Prompt** — Open `prompts/a11y-scan.prompt.md`.
+3. **Prompt** — Open `.github/prompts/a11y-scan.prompt.md`.
    A prompt is a reusable template invoked on demand. It specifies an `agent` to handle the request and defines input variables (`${input:url}`, `${input:component}`). Prompts standardize how you ask agents to perform common tasks.
 
 Here is how the four artifact types relate:

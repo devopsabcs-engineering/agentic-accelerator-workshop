@@ -29,10 +29,10 @@ Open the VS Code Explorer (`Ctrl+Shift+E`) and review the top-level directory la
 
 | Directory | Purpose |
 |---|---|
-| `agents/` | Custom Copilot agent definitions (one `.agent.md` file per agent) |
-| `instructions/` | Always-on rules that Copilot applies automatically based on `applyTo` globs |
-| `prompts/` | Reusable prompt templates invoked on demand |
-| `skills/` | Domain knowledge packages loaded by agents when they need deep context |
+| `.github/agents/` | Custom Copilot agent definitions (one `.agent.md` file per agent) |
+| `.github/instructions/` | Always-on rules that Copilot applies automatically based on `applyTo` globs |
+| `.github/prompts/` | Reusable prompt templates invoked on demand |
+| `.github/skills/` | Domain knowledge packages loaded by agents when they need deep context |
 | `sample-app/` | A Next.js application with intentional security, accessibility, and FinOps issues |
 
 Take a moment to expand each directory and note how many files it contains.
@@ -102,7 +102,7 @@ Take note of how the template preserves the full directory structure, agent defi
 
 Before proceeding, verify:
 
-* [ ] You can identify the five key directories (`agents/`, `instructions/`, `prompts/`, `skills/`, `sample-app/`)
+* [ ] You can identify the five key directories (`.github/agents/`, `.github/instructions/`, `.github/prompts/`, `.github/skills/`, `sample-app/`)
 * [ ] You found at least three intentional vulnerabilities by file name
 * [ ] The sample app runs locally at <http://localhost:3000>
 * [ ] You understand that the four agent domains are Security, Accessibility, Code Quality, and FinOps

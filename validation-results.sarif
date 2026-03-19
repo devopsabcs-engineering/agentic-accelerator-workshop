@@ -38,7 +38,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "agents/a11y-detector.agent.md",
+                  "uri": ".github/agents/a11y-detector.agent.md",
                   "uriBaseId": "%SRCROOT%"
                 }
               }
@@ -58,7 +58,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "agents/a11y-resolver.agent.md",
+                  "uri": ".github/agents/a11y-resolver.agent.md",
                   "uriBaseId": "%SRCROOT%"
                 }
               }
@@ -78,7 +78,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "agents/code-quality-detector.agent.md",
+                  "uri": ".github/agents/code-quality-detector.agent.md",
                   "uriBaseId": "%SRCROOT%"
                 }
               }
@@ -98,7 +98,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "agents/cost-analysis-agent.agent.md",
+                  "uri": ".github/agents/cost-analysis-agent.agent.md",
                   "uriBaseId": "%SRCROOT%"
                 }
               }
@@ -118,7 +118,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "agents/cost-anomaly-detector.agent.md",
+                  "uri": ".github/agents/cost-anomaly-detector.agent.md",
                   "uriBaseId": "%SRCROOT%"
                 }
               }
@@ -138,7 +138,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "agents/cost-optimizer-agent.agent.md",
+                  "uri": ".github/agents/cost-optimizer-agent.agent.md",
                   "uriBaseId": "%SRCROOT%"
                 }
               }
@@ -158,7 +158,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "agents/deployment-cost-gate-agent.agent.md",
+                  "uri": ".github/agents/deployment-cost-gate-agent.agent.md",
                   "uriBaseId": "%SRCROOT%"
                 }
               }
@@ -178,7 +178,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "agents/finops-governance-agent.agent.md",
+                  "uri": ".github/agents/finops-governance-agent.agent.md",
                   "uriBaseId": "%SRCROOT%"
                 }
               }
@@ -198,7 +198,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "agents/test-generator.agent.md",
+                  "uri": ".github/agents/test-generator.agent.md",
                   "uriBaseId": "%SRCROOT%"
                 }
               }
@@ -218,7 +218,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "agents/security-plan-creator.agent.md",
+                  "uri": ".github/agents/security-plan-creator.agent.md",
                   "uriBaseId": "%SRCROOT%"
                 }
               }
@@ -238,7 +238,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "agents/test-generator.agent.md",
+                  "uri": ".github/agents/test-generator.agent.md",
                   "uriBaseId": "%SRCROOT%"
                 }
               }
