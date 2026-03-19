@@ -1,5 +1,4 @@
 ---
-layout: default
 title: "Lab 01 - Explore the Sample App"
 description: "Navigate the workshop repository structure, identify the four agent domains, run the sample app locally, and discover intentional vulnerabilities."
 ---

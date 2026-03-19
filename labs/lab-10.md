@@ -1,5 +1,4 @@
 ---
-layout: default
 title: "Lab 10 - Agent Remediation Workflows"
 description: "Complete full Detect-Fix-Verify cycles using security, accessibility, and code quality agents to remediate findings and confirm the fixes."
 ---

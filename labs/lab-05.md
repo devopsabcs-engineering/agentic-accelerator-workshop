@@ -1,5 +1,4 @@
 ---
-layout: default
 title: "Lab 05 - Code Quality Analysis with Copilot Agents"
 description: "Measure test coverage, run the code-quality-detector to find quality issues, use the test-generator to create unit tests, and observe coverage improvement."
 ---

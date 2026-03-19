@@ -1,5 +1,4 @@
 ---
-layout: default
 title: "Lab 03 - Security Scanning with Copilot Agents"
 description: "Run the security-reviewer, iac-security, and supply-chain-security agents to find OWASP Top 10 vulnerabilities, infrastructure misconfigurations, and dependency risks in the sample app."
 ---

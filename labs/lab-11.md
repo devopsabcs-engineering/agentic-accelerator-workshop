@@ -1,5 +1,4 @@
 ---
-layout: default
 title: "Lab 11 - Creating Your Own Custom Agent"
 description: "Design and build a custom GitHub Copilot agent with YAML frontmatter, structured output, and an optional companion skill for domain-specific analysis."
 ---

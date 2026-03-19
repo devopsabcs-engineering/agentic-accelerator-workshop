@@ -1,5 +1,4 @@
 ---
-layout: default
 title: "Lab 02 - Understanding Agents, Skills, and Instructions"
 description: "Distinguish between agents, skills, instructions, and prompts. Learn the orchestrator and detector/resolver design patterns."
 ---

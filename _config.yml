@@ -7,3 +7,8 @@ plugins:
 relative_links:
   enabled: true
   collections: true
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"

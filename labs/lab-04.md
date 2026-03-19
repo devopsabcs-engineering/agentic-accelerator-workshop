@@ -1,5 +1,4 @@
 ---
-layout: default
 title: "Lab 04 - Accessibility Scanning with Copilot Agents"
 description: "Run the a11y-detector to find WCAG 2.2 Level AA violations, use the a11y-scan prompt for targeted scanning, and try the a11y-resolver handoff for automated fixes."
 ---
