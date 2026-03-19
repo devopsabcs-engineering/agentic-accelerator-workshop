@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /labs/lab-05.md
+permalink: /labs/lab-05
 title: "Lab 05 - Code Quality Analysis with Copilot Agents"
 description: "Measure test coverage, run the code-quality-detector to find quality issues, use the test-generator to create unit tests, and observe coverage improvement."
 ---
@@ -11,7 +11,7 @@ description: "Measure test coverage, run the code-quality-detector to find quali
 |---|---|
 | **Duration** | 35 minutes |
 | **Level** | Intermediate |
-| **Prerequisites** | [Lab 00](lab-00-setup.md), [Lab 01](lab-01.md), [Lab 02](lab-02.md) |
+| **Prerequisites** | [Lab 00](lab-00-setup), [Lab 01](lab-01), [Lab 02](lab-02) |
 
 ## Learning Objectives
 
@@ -130,4 +130,4 @@ Before proceeding, verify:
 
 ## Next Steps
 
-Proceed to [Lab 06](lab-06.md).
+Proceed to [Lab 06](lab-06).

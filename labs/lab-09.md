@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /labs/lab-09.md
+permalink: /labs/lab-09
 title: "Lab 09 - FinOps Agents and Azure Cost Governance"
 description: "Use FinOps agents to estimate infrastructure costs, enforce tag compliance, apply budget gates, and explore right-sizing recommendations for the sample app."
 ---
@@ -11,7 +11,7 @@ description: "Use FinOps agents to estimate infrastructure costs, enforce tag co
 |---|---|
 | **Duration** | 45 minutes |
 | **Level** | Advanced (Optional) |
-| **Prerequisites** | [Lab 00](lab-00-setup.md), [Lab 01](lab-01.md), [Lab 02](lab-02.md) |
+| **Prerequisites** | [Lab 00](lab-00-setup), [Lab 01](lab-01), [Lab 02](lab-02) |
 
 > [!IMPORTANT]
 > This lab is **optional** and requires an Azure subscription with **Cost Management Reader** role assigned to your account. You can complete the exercises using Copilot Chat agent prompts without deploying resources, but an Azure subscription provides richer context for cost analysis.
@@ -123,4 +123,4 @@ Before proceeding, verify:
 
 ## Next Steps
 
-Proceed to [Lab 10 — Agent Remediation Workflows](lab-10.md).
+Proceed to [Lab 10 — Agent Remediation Workflows](lab-10).

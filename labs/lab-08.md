@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /labs/lab-08.md
+permalink: /labs/lab-08
 title: "Lab 08 - Viewing Results in GitHub Security Tab"
 description: "Navigate the GitHub Security tab, filter Code Scanning alerts by tool and severity, view finding details with source code context, explore Dependabot alerts, and manage alert lifecycle."
 ---
@@ -11,7 +11,7 @@ description: "Navigate the GitHub Security tab, filter Code Scanning alerts by t
 |---|---|
 | **Duration** | 25 minutes |
 | **Level** | Intermediate |
-| **Prerequisites** | [Lab 07](lab-07.md) (workflows completed) |
+| **Prerequisites** | [Lab 07](lab-07) (workflows completed) |
 
 ## Learning Objectives
 
@@ -128,4 +128,4 @@ Before proceeding, verify:
 
 ## Next Steps
 
-Proceed to [Lab 09](lab-09.md) to explore FinOps governance and cost analysis with Copilot agents.
+Proceed to [Lab 09](lab-09) to explore FinOps governance and cost analysis with Copilot agents.

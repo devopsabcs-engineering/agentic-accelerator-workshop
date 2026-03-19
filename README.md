@@ -40,18 +40,18 @@ Before starting Lab 00, ensure you have the following:
 
 Work through the labs in order. Each lab builds on the previous one.
 
-- [ ] [Lab 00 - Prerequisites and Environment Setup](labs/lab-00-setup.md) _(30 min, Beginner)_
-- [ ] [Lab 01 - Explore the Sample App](labs/lab-01.md) _(25 min, Beginner)_
-- [ ] [Lab 02 - Understanding Agents, Skills, and Instructions](labs/lab-02.md) _(20 min, Beginner)_
-- [ ] [Lab 03 - Security Scanning with Copilot Agents](labs/lab-03.md) _(40 min, Intermediate)_
-- [ ] [Lab 04 - Accessibility Scanning with Copilot Agents](labs/lab-04.md) _(35 min, Intermediate)_
-- [ ] [Lab 05 - Code Quality Analysis with Copilot Agents](labs/lab-05.md) _(35 min, Intermediate)_
-- [ ] [Lab 06 - Understanding SARIF Output](labs/lab-06.md) _(30 min, Intermediate)_
-- [ ] [Lab 07 - Setting Up GitHub Actions Pipelines](labs/lab-07.md) _(40 min, Intermediate)_
-- [ ] [Lab 08 - Viewing Results in GitHub Security Tab](labs/lab-08.md) _(25 min, Intermediate)_
-- [ ] [Lab 09 - FinOps Agents and Azure Cost Governance](labs/lab-09.md) _(45 min, Advanced)_ ⭐ Optional
-- [ ] [Lab 10 - Agent Remediation Workflows](labs/lab-10.md) _(45 min, Advanced)_
-- [ ] [Lab 11 - Creating Your Own Custom Agent](labs/lab-11.md) _(45 min, Advanced)_
+- [ ] [Lab 00 - Prerequisites and Environment Setup](labs/lab-00-setup) _(30 min, Beginner)_
+- [ ] [Lab 01 - Explore the Sample App](labs/lab-01) _(25 min, Beginner)_
+- [ ] [Lab 02 - Understanding Agents, Skills, and Instructions](labs/lab-02) _(20 min, Beginner)_
+- [ ] [Lab 03 - Security Scanning with Copilot Agents](labs/lab-03) _(40 min, Intermediate)_
+- [ ] [Lab 04 - Accessibility Scanning with Copilot Agents](labs/lab-04) _(35 min, Intermediate)_
+- [ ] [Lab 05 - Code Quality Analysis with Copilot Agents](labs/lab-05) _(35 min, Intermediate)_
+- [ ] [Lab 06 - Understanding SARIF Output](labs/lab-06) _(30 min, Intermediate)_
+- [ ] [Lab 07 - Setting Up GitHub Actions Pipelines](labs/lab-07) _(40 min, Intermediate)_
+- [ ] [Lab 08 - Viewing Results in GitHub Security Tab](labs/lab-08) _(25 min, Intermediate)_
+- [ ] [Lab 09 - FinOps Agents and Azure Cost Governance](labs/lab-09) _(45 min, Advanced)_ ⭐ Optional
+- [ ] [Lab 10 - Agent Remediation Workflows](labs/lab-10) _(45 min, Advanced)_
+- [ ] [Lab 11 - Creating Your Own Custom Agent](labs/lab-11) _(45 min, Advanced)_
 
 ## Delivery Tiers
 
@@ -93,7 +93,7 @@ not block later labs.
    own copy.
 2. Clone the new repository to your local machine.
 3. Open the repository in VS Code.
-4. Start with [Lab 00 - Prerequisites and Environment Setup](labs/lab-00-setup.md).
+4. Start with [Lab 00 - Prerequisites and Environment Setup](labs/lab-00-setup).
 
 ## Credits
 

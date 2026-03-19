@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /labs/lab-03.md
+permalink: /labs/lab-03
 title: "Lab 03 - Security Scanning with Copilot Agents"
 description: "Run the security-reviewer, iac-security, and supply-chain-security agents to find OWASP Top 10 vulnerabilities, infrastructure misconfigurations, and dependency risks in the sample app."
 ---
@@ -11,7 +11,7 @@ description: "Run the security-reviewer, iac-security, and supply-chain-security
 |---|---|
 | **Duration** | 40 minutes |
 | **Level** | Intermediate |
-| **Prerequisites** | [Lab 00](lab-00-setup.md), [Lab 01](lab-01.md), [Lab 02](lab-02.md) |
+| **Prerequisites** | [Lab 00](lab-00-setup), [Lab 01](lab-01), [Lab 02](lab-02) |
 
 ## Learning Objectives
 
@@ -131,4 +131,4 @@ Before proceeding, verify:
 
 ## Next Steps
 
-Proceed to [Lab 04 — Accessibility Scanning with Copilot Agents](lab-04.md).
+Proceed to [Lab 04 — Accessibility Scanning with Copilot Agents](lab-04).

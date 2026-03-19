@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /labs/lab-01.md
+permalink: /labs/lab-01
 title: "Lab 01 - Explore the Sample App"
 description: "Navigate the workshop repository structure, identify the four agent domains, run the sample app locally, and discover intentional vulnerabilities."
 ---
@@ -11,7 +11,7 @@ description: "Navigate the workshop repository structure, identify the four agen
 |---|---|
 | **Duration** | 25 minutes |
 | **Level** | Beginner |
-| **Prerequisites** | [Lab 00](lab-00-setup.md) |
+| **Prerequisites** | [Lab 00](lab-00-setup) |
 
 ## Learning Objectives
 
@@ -114,4 +114,4 @@ Before proceeding, verify:
 
 ## Next Steps
 
-Proceed to [Lab 02 — Understanding Agents, Skills, and Instructions](lab-02.md).
+Proceed to [Lab 02 — Understanding Agents, Skills, and Instructions](lab-02).
