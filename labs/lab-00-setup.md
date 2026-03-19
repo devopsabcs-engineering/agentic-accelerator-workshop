@@ -49,8 +49,7 @@ You need three tools on your machine before starting the workshop. If you alread
    code --version
    ```
 
-> [!NOTE]
-> Screenshot placeholder: `![Terminal showing Node.js v20+ version](../images/lab-00/lab-00-node-version.png)`
+![Terminal showing Node.js v20+ version](../images/lab-00/lab-00-node-version.png)
 
 ### Exercise 0.2: Install VS Code Extensions
 
@@ -74,8 +73,7 @@ code --install-extension dbaeumer.vscode-eslint
 
 After installation, confirm all four extensions appear as enabled in the Extensions panel.
 
-> [!NOTE]
-> Screenshot placeholder: `![VS Code extensions panel with 4 required extensions installed](../images/lab-00/lab-00-vscode-extensions.png)`
+![VS Code extensions panel with 4 required extensions installed](../images/lab-00/lab-00-vscode-extensions.png)
 
 ### Exercise 0.3: Create Your Workshop Repository
 
@@ -108,8 +106,7 @@ After installation, confirm all four extensions appear as enabled in the Extensi
 3. Copilot should respond with a list of agents it can see (for example, `@security-agent`, `@a11y-detector`).
 4. If Copilot does not list any agents, confirm the `.github/agents/` folder is present in your workspace and the Copilot extensions are enabled.
 
-> [!NOTE]
-> Screenshot placeholder: `![Copilot Chat panel showing successful agent list](../images/lab-00/lab-00-copilot-chat-verify.png)`
+![Copilot Chat panel showing successful agent list](../images/lab-00/lab-00-copilot-chat-verify.png)
 
 ## Verification Checkpoint
 

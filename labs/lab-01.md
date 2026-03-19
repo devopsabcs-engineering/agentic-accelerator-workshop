@@ -37,8 +37,7 @@ Open the VS Code Explorer (`Ctrl+Shift+E`) and review the top-level directory la
 
 Take a moment to expand each directory and note how many files it contains.
 
-> [!NOTE]
-> Screenshot placeholder: `![VS Code explorer showing repo directory tree](../images/lab-01/lab-01-folder-structure.png)`
+![VS Code explorer showing repo directory tree](../images/lab-01/lab-01-folder-structure.png)
 
 ### Exercise 1.2: Review Intentional Issues
 
@@ -63,8 +62,7 @@ The sample app includes deliberate vulnerabilities for agents to detect in later
    * HTTP traffic allowed, TLS 1.0 permitted (lines 51–53)
    * Plaintext SQL admin password as a parameter (line 16)
 
-> [!NOTE]
-> Screenshot placeholder: `![Code editor showing intentional vulnerability](../images/lab-01/lab-01-issue-markers.png)`
+![Code editor showing intentional vulnerability](../images/lab-01/lab-01-issue-markers.png)
 
 ### Exercise 1.3: Run the Sample App
 
@@ -90,8 +88,7 @@ The sample app includes deliberate vulnerabilities for agents to detect in later
 5. Browse the products page and click on a product to view its details page.
 6. When you are done exploring, stop the dev server with `Ctrl+C`.
 
-> [!NOTE]
-> Screenshot placeholder: `![Browser showing sample app at localhost:3000](../images/lab-01/lab-01-app-running.png)`
+![Browser showing sample app at localhost:3000](../images/lab-01/lab-01-app-running.png)
 
 ### Exercise 1.4: Note the Template Creation Flow
 
@@ -99,8 +96,7 @@ When other participants join the workshop, they will create their own repository
 
 Take note of how the template preserves the full directory structure, agent definitions, and sample app so every student starts from the same baseline.
 
-> [!NOTE]
-> Screenshot placeholder: `![GitHub "Use this template" dialog](../images/lab-01/lab-01-template-create.png)`
+![GitHub "Use this template" dialog](../images/lab-01/lab-01-template-create.png)
 
 ## Verification Checkpoint
 

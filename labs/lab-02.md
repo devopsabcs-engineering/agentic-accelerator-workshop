@@ -53,8 +53,7 @@ Note these key fields:
 
 Scroll down to the Markdown body and note the SARIF output requirement and the OWASP Top 10 checklist that guides the agent's review.
 
-> [!NOTE]
-> Screenshot placeholder: `![Agent file with YAML frontmatter highlighted](../images/lab-02/lab-02-agent-file-frontmatter.png)`
+![Agent file with YAML frontmatter highlighted](../images/lab-02/lab-02-agent-file-frontmatter.png)
 
 ### Exercise 2.2: Explore Agent Patterns
 
@@ -112,8 +111,7 @@ Here is how the four artifact types relate:
 | Instruction | Always active based on `applyTo` file patterns | Enforces rules and standards automatically |
 | Prompt | Invoked on demand as a chat template | Standardizes common requests with input variables |
 
-> [!NOTE]
-> Screenshot placeholder: `![Diagram showing agents/skills/instructions/prompts relationship](../images/lab-02/lab-02-domain-diagram.png)`
+![Diagram showing agents/skills/instructions/prompts relationship](../images/lab-02/lab-02-domain-diagram.png)
 
 ### Exercise 2.4: Understand Handoff Patterns
 

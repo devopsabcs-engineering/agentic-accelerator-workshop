@@ -1,0 +1,38 @@
+graph TB
+    subgraph invoke["Invocation Layer"]
+        direction LR
+        USER["👤 Developer\n(Copilot Chat)"]
+        PROMPT["📋 Prompt\nOn-demand template\ne.g. a11y-scan.prompt.md"]
+    end
+
+    subgraph agents["Agent Layer"]
+        direction LR
+        AGENT["🤖 Agent\nInvoked via @agent-name\nPerforms analysis & decisions"]
+        ORCH["🎯 Orchestrator Agent\nDelegates to sub-agents\ne.g. SecurityAgent"]
+        SUB1["🔍 Sub-Agent 1\ne.g. SecurityReviewer"]
+        SUB2["🔍 Sub-Agent 2\ne.g. PipelineSecurity"]
+    end
+
+    subgraph context["Context Layer"]
+        direction LR
+        SKILL["📚 Skill\nLoaded on demand\nDomain knowledge package"]
+        INSTR["📏 Instruction\nAlways active\nRules via applyTo patterns"]
+    end
+
+    USER -- "@agent-name" --> AGENT
+    USER -- "Run prompt" --> PROMPT
+    PROMPT -- "Specifies agent" --> AGENT
+    AGENT -- "Loads when needed" --> SKILL
+    INSTR -. "Auto-applied to\nmatching files" .-> AGENT
+    ORCH -- "Handoff" --> SUB1
+    ORCH -- "Handoff" --> SUB2
+    SUB1 -- "Loads when needed" --> SKILL
+
+    style AGENT fill:#4A90D9,stroke:#2C5F8A,color:#fff
+    style ORCH fill:#4A90D9,stroke:#2C5F8A,color:#fff
+    style SUB1 fill:#6BA3D6,stroke:#2C5F8A,color:#fff
+    style SUB2 fill:#6BA3D6,stroke:#2C5F8A,color:#fff
+    style SKILL fill:#7BC67E,stroke:#3A7D3C,color:#fff
+    style INSTR fill:#F5A623,stroke:#C47D0E,color:#fff
+    style PROMPT fill:#9B59B6,stroke:#6C3483,color:#fff
+    style USER fill:#34495E,stroke:#1C2833,color:#fff
