@@ -1,0 +1,25 @@
+flowchart LR
+    subgraph POUR["WCAG 2.2 Level AA — POUR Principles"]
+        direction TB
+        subgraph P["🔵 Perceivable"]
+            P1["1.1.1 Non-text Content · Level A\n🔴 Missing alt text on images\nproducts/page.tsx · products/[id]/page.tsx"]
+            P2["1.3.1 Info and Relationships · Level A\n🔴 Missing form labels\npage.tsx · Header.tsx heading-order"]
+            P3["1.4.3 Contrast Minimum · Level AA\n🟠 Low color contrast #999 / #aaa\npage.tsx lines 12, 42"]
+        end
+        subgraph O["🟢 Operable"]
+            O1["2.4.1 Bypass Blocks · Level A\n🟠 No skip-navigation link\nlayout.tsx"]
+            O2["2.5.8 Target Size · Level AA\n🟠 Touch targets below 24×24 px\npage.tsx nav links"]
+        end
+        subgraph U["🟡 Understandable"]
+            U1["3.1.1 Language of Page · Level A\n🔴 Missing lang attribute on html\nlayout.tsx ✅ FIXED"]
+        end
+        subgraph R["🟣 Robust"]
+            R1["4.1.2 Name Role Value · Level A\n🟠 nav elements lack aria-label\nHeader.tsx · page.tsx"]
+        end
+    end
+
+    style P fill:#dbeafe,stroke:#2563eb
+    style O fill:#dcfce7,stroke:#16a34a
+    style U fill:#fef9c3,stroke:#ca8a04
+    style R fill:#f3e8ff,stroke:#9333ea
+    style POUR fill:#f8fafc,stroke:#64748b

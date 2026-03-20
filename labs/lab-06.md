@@ -51,8 +51,7 @@ Open the SARIF file and explore its JSON structure to understand how agent findi
 
 6. Count how many runs exist in the file and note which tools produced them.
 
-> [!NOTE]
-> Screenshot placeholder: `![SARIF JSON file open in VS Code editor](../images/lab-06/lab-06-sarif-raw.png)`
+![SARIF JSON file open in VS Code editor](../images/lab-06/lab-06-sarif-raw.png)
 
 ### Exercise 6.2: Use SARIF Viewer Extension
 
@@ -62,14 +61,12 @@ The SARIF Viewer extension provides a graphical interface for navigating finding
 2. Select **Open with SARIF Viewer** from the context menu. If the option does not appear, confirm the SARIF Viewer extension is installed (see Lab 00 setup).
 3. The viewer displays a findings tree grouped by tool and severity. Expand a tool node to see its individual findings.
 
-> [!NOTE]
-> Screenshot placeholder: `![SARIF Viewer extension showing findings tree](../images/lab-06/lab-06-sarif-viewer.png)`
+![SARIF Viewer extension showing findings tree](../images/lab-06/lab-06-sarif-viewer.png)
 
 4. Click any finding in the tree. The viewer opens the referenced source file and highlights the exact line where the issue was detected.
 5. Compare the source location shown in the viewer to the `locations[]` field you examined in Exercise 6.1. Both should point to the same file and line number.
 
-> [!NOTE]
-> Screenshot placeholder: `![SARIF Viewer jumping to source code location](../images/lab-06/lab-06-navigate-source.png)`
+![SARIF Viewer jumping to source code location](../images/lab-06/lab-06-navigate-source.png)
 
 ### Exercise 6.3: SARIF Category Prefixes
 
@@ -95,8 +92,7 @@ The Agentic Accelerator Framework uses category prefixes in the `automationDetai
 3. Return to the raw SARIF file and search for `automationDetails` entries. Identify which category prefix each run uses.
 4. For security findings, the framework maps to CWE IDs (for example, CWE-79 for XSS) and OWASP Top 10 categories. For accessibility findings, the mapping references WCAG 2.2 success criteria.
 
-> [!NOTE]
-> Screenshot placeholder: `![Diagram of category prefixes and domains](../images/lab-06/lab-06-category-diagram.png)`
+![SARIF category prefixes — security, accessibility-scan, code-quality/coverage, finops-finding/v1 — with agent mappings and severity levels](../images/lab-06/lab-06-category-diagram.png)
 
 ### Exercise 6.4: How GitHub Ingests SARIF
 

@@ -1,0 +1,78 @@
+---
+title: "SARIF Category Prefixes & Severity Mapping"
+---
+flowchart TB
+    SARIF["SARIF v2.1.0<br/>automationDetails.id"]
+
+    subgraph Categories["Category Prefixes"]
+        direction TB
+        SEC["security/<br/>Security Scanning"]
+        A11Y["accessibility-scan/<br/>Accessibility"]
+        CQ["code-quality/coverage/<br/>Code Quality"]
+        FIN["finops-finding/v1<br/>FinOps Governance"]
+    end
+
+    subgraph SecAgents["Agents"]
+        SA1["SecurityReviewerAgent"]
+        SA2["IaCSecurityAgent"]
+        SA3["SupplyChainSecurityAgent"]
+        SA4["PipelineSecurityAgent"]
+    end
+
+    subgraph A11yAgents["Agents"]
+        AA1["A11yDetector"]
+        AA2["A11yResolver"]
+    end
+
+    subgraph CQAgents["Agents"]
+        CA1["CodeQualityDetector"]
+        CA2["TestGenerator"]
+    end
+
+    subgraph FinAgents["Agents"]
+        FA1["CostAnalysisAgent"]
+        FA2["CostOptimizerAgent"]
+        FA3["FinOpsGovernanceAgent"]
+    end
+
+    SARIF --> SEC
+    SARIF --> A11Y
+    SARIF --> CQ
+    SARIF --> FIN
+
+    SEC --> SA1
+    SEC --> SA2
+    SEC --> SA3
+    SEC --> SA4
+
+    A11Y --> AA1
+    A11Y --> AA2
+
+    CQ --> CA1
+    CQ --> CA2
+
+    FIN --> FA1
+    FIN --> FA2
+    FIN --> FA3
+
+    subgraph Severity["SARIF Level → Framework Severity"]
+        direction LR
+        E["error → CRITICAL / HIGH<br/>Must remediate before merge"]
+        W["warning → MEDIUM<br/>Address in current sprint"]
+        N["note → LOW<br/>Track for future improvement"]
+    end
+
+    style SEC fill:#fee2e2,stroke:#dc2626,color:#000
+    style A11Y fill:#dbeafe,stroke:#2563eb,color:#000
+    style CQ fill:#dcfce7,stroke:#16a34a,color:#000
+    style FIN fill:#fef9c3,stroke:#ca8a04,color:#000
+    style Categories fill:#f8fafc,stroke:#64748b
+    style Severity fill:#f1f5f9,stroke:#475569
+    style E fill:#fee2e2,stroke:#ef4444,color:#000
+    style W fill:#fef3c7,stroke:#f59e0b,color:#000
+    style N fill:#e0f2fe,stroke:#0284c7,color:#000
+    style SARIF fill:#e0e7ff,stroke:#4f46e5,color:#000
+    style SecAgents fill:#fff1f2,stroke:#fda4af
+    style A11yAgents fill:#eff6ff,stroke:#93c5fd
+    style CQAgents fill:#f0fdf4,stroke:#86efac
+    style FinAgents fill:#fefce8,stroke:#fde047

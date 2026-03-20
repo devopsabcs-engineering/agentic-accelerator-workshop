@@ -45,8 +45,7 @@ Start with a broad scan of the entire sample app source directory.
 
 4. Count the total number of violations reported. The detector should find at least 5 distinct issues.
 
-> [!NOTE]
-> Screenshot placeholder: `![Accessibility detector full scan output](../images/lab-04/lab-04-a11y-findings.png)`
+![Accessibility detector full scan output](../images/lab-04/lab-04-a11y-findings.png)
 
 ### Exercise 4.2: Targeted Component Scan with Prompt File
 
@@ -61,8 +60,7 @@ Instead of scanning the entire directory, use the a11y-scan prompt file to focus
 2. Compare the targeted output to the full scan from Exercise 4.1. Notice that the targeted scan focuses on a single component and provides more detailed findings for that file.
 3. The prompt file approach is useful when you want to check a specific component during development rather than scanning the entire project.
 
-> [!NOTE]
-> Screenshot placeholder: `![a11y-scan prompt file targeted scan](../images/lab-04/lab-04-prompt-file.png)`
+![a11y-scan prompt file targeted scan](../images/lab-04/lab-04-prompt-file.png)
 
 ### Exercise 4.3: Handoff to Resolver
 
@@ -79,8 +77,7 @@ Now try the detector-to-resolver handoff pattern you learned about in Lab 02.
 4. Examine the code change the resolver proposes. Verify that it addresses the WCAG 3.1.1 violation without introducing new issues.
 5. Optionally, accept the fix and re-run the detector to confirm the violation is resolved.
 
-> [!NOTE]
-> Screenshot placeholder: `![A11y resolver applying fix](../images/lab-04/lab-04-resolver-handoff.png)`
+![A11y resolver applying fix](../images/lab-04/lab-04-resolver-handoff.png)
 
 ### Exercise 4.4: Map Findings to WCAG Criteria
 
@@ -105,8 +102,7 @@ Review all findings from the exercises above and map each one to its WCAG 2.2 su
 
 3. Note the WCAG conformance levels (A, AA, AAA). Level AA is the standard most organizations target for compliance.
 
-> [!NOTE]
-> Screenshot placeholder: `![WCAG success criteria references](../images/lab-04/lab-04-wcag-criteria.png)`
+![WCAG 2.2 Level AA findings mapped to POUR principles — Perceivable, Operable, Understandable, Robust](../images/lab-04/lab-04-wcag-criteria.png)
 
 ## Verification Checkpoint
 

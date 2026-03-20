@@ -42,8 +42,7 @@ Before running any agents, establish a baseline by measuring the current test co
 3. Review the coverage output. You should see coverage around 5% because only a placeholder test exists in `__tests__/placeholder.test.ts`.
 4. Note the specific files and functions with 0% coverage. These are the targets for later exercises.
 
-> [!NOTE]
-> Screenshot placeholder: `![Terminal showing ~5% test coverage](../images/lab-05/lab-05-coverage-before.png)`
+![Terminal showing ~5% test coverage](../images/lab-05/lab-05-coverage-before.png)
 
 ### Exercise 5.2: Code Quality Detection
 
@@ -68,8 +67,7 @@ Use the Code Quality Detector agent to get a comprehensive quality analysis.
 
 4. Note which findings the detector flags as highest priority. Low coverage and type safety issues are common starting points for improvement.
 
-> [!NOTE]
-> Screenshot placeholder: `![Code quality detector findings](../images/lab-05/lab-05-quality-findings.png)`
+![Code quality detector findings](../images/lab-05/lab-05-quality-findings.png)
 
 ### Exercise 5.3: Generate Tests
 
@@ -89,8 +87,7 @@ Use the Test Generator agent to create unit tests for one of the uncovered files
 
 3. Examine the test structure. The generated tests should use Jest syntax (`describe`, `it`, `expect`) consistent with the project configuration in `jest.config.ts`.
 
-> [!NOTE]
-> Screenshot placeholder: `![Test generator output for utils.ts](../images/lab-05/lab-05-test-generator.png)`
+![Test generator output for utils.ts](../images/lab-05/lab-05-test-generator.png)
 
 ### Exercise 5.4: Apply Tests and Re-measure (Optional)
 
@@ -114,8 +111,7 @@ Apply the generated tests and measure the coverage improvement.
 4. Compare the new coverage percentage to the baseline from Exercise 5.1. You should see a measurable improvement in the coverage for `src/lib/utils.ts`.
 5. This exercise demonstrates the detect → generate → verify cycle from Lab 02: the Code Quality Detector identified the gap, the Test Generator produced tests, and re-running coverage confirms the improvement.
 
-> [!NOTE]
-> Screenshot placeholder: `![Terminal showing improved coverage](../images/lab-05/lab-05-coverage-after.png)`
+![Coverage after test generation — utils.ts at 100%, overall project at 67.97% lines and 95.06% branch](../images/lab-05/lab-05-coverage-after.png)
 
 ## Verification Checkpoint
 

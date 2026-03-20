@@ -33,8 +33,7 @@ Locate the Security tab where GitHub aggregates all scanning results.
 3. In the left sidebar, click **Code scanning alerts**. This page displays all findings uploaded from your GitHub Actions workflows via SARIF.
 4. Review the alerts overview. GitHub groups alerts by state (Open, Closed) and shows a count for each severity level.
 
-> [!NOTE]
-> Screenshot placeholder: `![GitHub Security tab overview](../images/lab-08/lab-08-security-tab.png)`
+![GitHub Security tab overview](../images/lab-08/lab-08-security-tab.png)
 
 ### Exercise 8.2: Filter and Explore Alerts
 
@@ -46,8 +45,7 @@ Use the filter controls to narrow alerts by tool, severity, and category.
 4. Combine multiple filters to focus on the most relevant findings. For example, filter by tool and severity together to see only high-priority security alerts.
 5. Note the total count of alerts for each filter combination. This gives you a sense of the finding distribution across domains and severity levels.
 
-> [!NOTE]
-> Screenshot placeholder: `![Code scanning alerts filtered view](../images/lab-08/lab-08-code-scanning.png)`
+![Code scanning alerts filtered view](../images/lab-08/lab-08-code-scanning.png)
 
 ### Exercise 8.3: View Finding Details
 

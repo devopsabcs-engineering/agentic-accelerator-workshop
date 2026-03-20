@@ -48,8 +48,7 @@ Explore the four workflow files included in the repository to understand what ea
 
 5. Note that all four workflows upload SARIF to the Security tab. The different `category` values ensure findings are grouped by domain.
 
-> [!NOTE]
-> Screenshot placeholder: `![Workflow YAML file in VS Code](../images/lab-07/lab-07-workflow-files.png)`
+![Workflow YAML file in VS Code](../images/lab-07/lab-07-workflow-files.png)
 
 ### Exercise 7.2: Enable GitHub Actions
 
@@ -94,8 +93,7 @@ Create a branch, make a small change, and open a pull request to trigger the wor
 5. Click **Compare & pull request**.
 6. Set the target branch to `main`, add a descriptive title such as "Test pipeline trigger", and click **Create pull request**.
 
-> [!NOTE]
-> Screenshot placeholder: `![GitHub PR creation page](../images/lab-07/lab-07-pr-created.png)`
+![GitHub PR creation page](../images/lab-07/lab-07-pr-created.png)
 
 ### Exercise 7.4: Monitor Workflow Execution
 
@@ -105,8 +103,7 @@ Watch the workflows run and explore the execution logs.
 2. Click the **Actions** tab at the top of the repository page.
 3. Locate the triggered workflow runs. You should see at least the Security Scan and Code Quality workflows running (the Accessibility Scan and FinOps Cost Gate may also trigger depending on your changes).
 
-> [!NOTE]
-> Screenshot placeholder: `![Actions tab showing running workflows](../images/lab-07/lab-07-actions-running.png)`
+![Actions tab showing running workflows](../images/lab-07/lab-07-actions-running.png)
 
 4. Click a running workflow to view its details. You will see each job listed with its current status (queued, in progress, or completed).
 5. Click a specific job to expand its step-by-step logs. Look for:
@@ -117,8 +114,7 @@ Watch the workflows run and explore the execution logs.
 
 6. Wait for all workflows to complete. Green checkmarks indicate successful completion. If a workflow fails, click it to review the error logs.
 
-> [!NOTE]
-> Screenshot placeholder: `![Actions tab showing completed workflows](../images/lab-07/lab-07-actions-complete.png)`
+![Actions tab showing completed workflows](../images/lab-07/lab-07-actions-complete.png)
 
 > [!IMPORTANT]
 > Do not merge or close this pull request yet. Lab 08 requires the workflow results to be available in the Security tab.
