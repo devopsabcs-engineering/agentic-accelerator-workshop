@@ -134,7 +134,7 @@ jobs:
 
       - name: Run Trivy container scan
         if: steps.check.outputs.found == 'true'
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.35.0
         with:
           image-ref: scan-target:latest
           format: sarif
