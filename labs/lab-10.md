@@ -135,7 +135,6 @@ Detect missing test coverage, generate tests, and verify improved coverage.
 
 ![Coverage comparison before and after test generation](../images/lab-10/lab-10-coverage-comparison.png)
 
-![Coverage comparison before and after test generation](../images/lab-10/lab-10-coverage-comparison.png)
 
 ### Exercise 10.4: Commit Your Fixes
 

@@ -147,7 +147,6 @@ Invoke the custom agent in Copilot Chat and evaluate its response.
 
 ![Custom agent output showing rule IDs, severity, and remediation](../images/lab-11/lab-11-agent-output.png)
 
-![Custom agent output showing rule IDs, severity, and remediation](../images/lab-11/lab-11-agent-output.png)
 
 ### Exercise 11.4: Create a Companion Skill (Optional)
 
