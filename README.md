@@ -1,11 +1,11 @@
 ---
 title: "Agentic Accelerator Workshop"
-description: "Learn to use AI-powered Accelerator agents — from zero to hero"
+description: "Learn to use AI-powered Accelerator agents — from Agents to Hero"
 ---
 
 # Agentic Accelerator Workshop
 
-> Learn to use AI-powered Accelerator agents — from zero to hero
+> Learn to use AI-powered Accelerator agents — from Agents to Hero
 
 This hands-on workshop teaches you how to integrate GitHub Copilot custom agents
 into your Accelerator workflows. You will configure security scanners, accessibility
