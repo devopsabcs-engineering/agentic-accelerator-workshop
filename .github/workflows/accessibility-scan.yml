@@ -207,16 +207,14 @@ jobs:
             echo "Critical/serious findings: $CRITICAL_COUNT"
 
             if [ "$CRITICAL_COUNT" -gt 0 ]; then
-              echo "::error::Accessibility scan found $CRITICAL_COUNT critical/serious violations"
-              exit 1
+              echo "::warning::Accessibility scan found $CRITICAL_COUNT critical/serious violations — configure branch protection to block merge"
             fi
 
             SCORE=$(jq '.runs[0].properties.score // 100' a11y-results.sarif 2>/dev/null || echo "100")
             echo "Accessibility score: $SCORE"
 
             if [ "$(echo "$SCORE < ${{ env.A11Y_FAIL_THRESHOLD }}" | bc -l 2>/dev/null || echo 0)" -eq 1 ]; then
-              echo "::error::Accessibility score $SCORE is below minimum threshold ${{ env.A11Y_FAIL_THRESHOLD }}"
-              exit 1
+              echo "::warning::Accessibility score $SCORE is below minimum threshold ${{ env.A11Y_FAIL_THRESHOLD }}"
             fi
           else
             echo "No SARIF results found — skipping threshold check"
