@@ -129,12 +129,13 @@ jobs:
             for (const violation of (page.violations || [])) {
               if (!rulesMap.has(violation.id)) {
                 const allTags = ["accessibility"].concat(violation.tags || []).slice(0, 10);
+                const helpText = (violation.help || violation.id).replace(/</g, "&lt;").replace(/>/g, "&gt;");
                 rulesMap.set(violation.id, {
                   id: violation.id,
                   shortDescription: { text: violation.help || violation.id },
                   fullDescription: { text: violation.description || "" },
                   helpUri: violation.helpUrl || undefined,
-                  help: { text: violation.helpUrl ? `${violation.help || ""}. Learn more: ${violation.helpUrl}` : (violation.help || ""), markdown: violation.helpUrl ? `${violation.help || ""}. [Learn more](${violation.helpUrl})` : (violation.help || "") },
+                  help: { text: violation.helpUrl ? `${helpText}. Learn more: ${violation.helpUrl}` : helpText, markdown: violation.helpUrl ? `${helpText}. [Learn more](${violation.helpUrl})` : helpText },
                   properties: { tags: allTags }
                 });
               }
