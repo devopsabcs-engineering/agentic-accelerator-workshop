@@ -23,6 +23,7 @@
 name: FinOps Cost Gate
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - '**/*.tf'

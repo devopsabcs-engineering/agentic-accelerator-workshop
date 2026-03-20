@@ -19,6 +19,7 @@
 name: Accessibility Scan
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: [main]
   schedule:
@@ -53,17 +54,122 @@ jobs:
 
       - name: Install scanning dependencies
         run: |
-          npm install -g @axe-core/cli accessibility-checker
+          npm install --no-save @axe-core/playwright accessibility-checker playwright
           npx playwright install --with-deps chromium
+
+      - name: Build and start sample app
+        if: contains(matrix.scan-url.url, 'localhost')
+        run: |
+          cd sample-app
+          npm ci
+          npm run build
+          npm start &
+          # Wait for the server to be ready
+          for i in $(seq 1 30); do
+            if curl -s http://localhost:3000 > /dev/null 2>&1; then
+              echo "Server is ready"
+              break
+            fi
+            echo "Waiting for server... ($i/30)"
+            sleep 2
+          done
 
       - name: Run accessibility scan
         id: scan
         run: |
-          npx a11y-scan scan \
-            --url "${{ matrix.scan-url.url }}" \
-            --threshold ${{ env.A11Y_THRESHOLD }} \
-            --format sarif \
-            --output a11y-results.sarif
+          # Run axe-core via Playwright (avoids ChromeDriver version issues)
+          node -e '
+          const { chromium } = require("playwright");
+          const AxeBuilder = require("@axe-core/playwright").default;
+          const fs = require("fs");
+
+          (async () => {
+            const browser = await chromium.launch();
+            const context = await browser.newContext();
+            const page = await context.newPage();
+            await page.goto("${{ matrix.scan-url.url }}", { waitUntil: "networkidle" });
+            const axeResults = await new AxeBuilder({ page })
+              .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa", "best-practice"])
+              .analyze();
+            await browser.close();
+            fs.writeFileSync("axe-results.json", JSON.stringify(axeResults, null, 2));
+            console.log("Violations: " + axeResults.violations.length);
+          })();
+          '
+
+          # Convert axe JSON output to SARIF v2.1.0
+          node -e '
+          const fs = require("fs");
+          if (!fs.existsSync("axe-results.json")) {
+            console.error("No axe results found");
+            process.exit(1);
+          }
+          const axeResults = JSON.parse(fs.readFileSync("axe-results.json", "utf8"));
+          const results = Array.isArray(axeResults) ? axeResults : [axeResults];
+
+          const impactToLevel = { critical: "error", serious: "error", moderate: "warning", minor: "note" };
+          const impactToSeverity = { critical: "9.0", serious: "7.0", moderate: "4.0", minor: "1.0" };
+          const impactToWeight = { critical: 10, serious: 7, moderate: 3, minor: 1 };
+
+          const rulesMap = new Map();
+          const sarifResults = [];
+          let totalWeight = 0;
+          let maxWeight = 0;
+
+          // Map URL path to a source file relative to the repo root
+          function urlToSourceFile(pageUrl) {
+            try {
+              const urlPath = new URL(pageUrl).pathname;
+              const clean = urlPath === "/" ? "" : urlPath.replace(/\/$/, "");
+              if (clean === "") return "sample-app/src/app/page.tsx";
+              return "sample-app/src/app" + clean + "/page.tsx";
+            } catch { return "sample-app/src/app/page.tsx"; }
+          }
+
+          for (const page of results) {
+            const sourceFile = urlToSourceFile(page.url || "${{ matrix.scan-url.url }}");
+            for (const violation of (page.violations || [])) {
+              if (!rulesMap.has(violation.id)) {
+                rulesMap.set(violation.id, {
+                  id: violation.id,
+                  shortDescription: { text: violation.help || violation.id },
+                  fullDescription: { text: violation.description || "" },
+                  help: { text: violation.help || "", markdown: violation.helpUrl ? `${violation.help || ""}. [Learn more](${violation.helpUrl})` : violation.help || "" },
+                  properties: { tags: ["accessibility"].concat(violation.tags || []) }
+                });
+              }
+              const weight = impactToWeight[violation.impact] || 1;
+              for (const node of (violation.nodes || [])) {
+                maxWeight += 10;
+                totalWeight += weight;
+                const target = (node.target || []).join(" ");
+                sarifResults.push({
+                  ruleId: violation.id,
+                  level: impactToLevel[violation.impact] || "warning",
+                  message: { text: node.failureSummary || violation.help || violation.id },
+                  locations: [{ physicalLocation: { artifactLocation: { uri: sourceFile }, region: { snippet: { text: node.html || "" } } } }],
+                  partialFingerprints: { primaryLocationLineHash: require("crypto").createHash("sha256").update(violation.id + ":" + target).digest("hex").slice(0, 16) },
+                  properties: { impact: violation.impact, target, "security-severity": impactToSeverity[violation.impact] || "1.0" }
+                });
+              }
+            }
+          }
+
+          const score = maxWeight > 0 ? Math.round((1 - totalWeight / maxWeight) * 100) : 100;
+          const sarif = {
+            "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json",
+            version: "2.1.0",
+            runs: [{
+              tool: { driver: { name: "accessibility-scanner", version: "1.0.0", rules: [...rulesMap.values()] } },
+              automationDetails: { id: "accessibility-scan/${{ matrix.scan-url.label }}" },
+              results: sarifResults,
+              properties: { score }
+            }]
+          };
+          fs.writeFileSync("a11y-results.sarif", JSON.stringify(sarif, null, 2));
+          console.log("Accessibility score: " + score);
+          console.log("Violations found: " + sarifResults.length);
+          '
         continue-on-error: true
 
       - name: Upload a11y SARIF
