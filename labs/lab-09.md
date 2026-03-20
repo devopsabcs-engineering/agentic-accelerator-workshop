@@ -48,8 +48,7 @@ Use the Cost Analysis Agent to estimate monthly costs for the sample app infrast
 
 4. Note that the sample app uses premium-tier SKUs that far exceed what a sample application requires. This is intentional to demonstrate cost governance capabilities.
 
-> [!NOTE]
-> Screenshot placeholder: `![Cost analysis agent showing estimated monthly costs](../images/lab-09/lab-09-cost-analysis.png)`
+![Cost analysis agent showing estimated monthly costs](../images/lab-09/lab-09-cost-analysis.png)
 
 ### Exercise 9.2: Tag Governance
 
@@ -71,8 +70,7 @@ Check whether the infrastructure template follows organizational tagging policie
 
 3. Consider why tag compliance matters: without proper tags, organizations cannot accurately allocate cloud costs to teams, track spending by environment, or enforce accountability.
 
-> [!NOTE]
-> Screenshot placeholder: `![Tag governance agent identifying missing tags](../images/lab-09/lab-09-tag-governance.png)`
+![Tag governance agent identifying missing tags](../images/lab-09/lab-09-tag-governance.png)
 
 ### Exercise 9.3: Cost Gate
 
@@ -88,8 +86,7 @@ Apply a budget threshold to determine whether the deployment should proceed.
 3. In a real CI/CD pipeline, this cost gate would block the deployment and require either budget approval or infrastructure changes before proceeding.
 4. Consider how cost gates prevent unexpected cloud spending: teams set a budget threshold, and the gate rejects deployments that would exceed it.
 
-> [!NOTE]
-> Screenshot placeholder: `![Cost gate agent showing budget exceeded](../images/lab-09/lab-09-cost-gate.png)`
+![Cost gate agent showing budget exceeded](../images/lab-09/lab-09-cost-gate.png)
 
 ### Exercise 9.4: Right-Sizing (Optional)
 
@@ -108,8 +105,7 @@ Reduce costs by switching to appropriately sized SKUs and verify the impact.
 6. Compare the new estimate against the original. The right-sized deployment should cost approximately $30/month, a reduction of over 97%.
 7. **Revert your changes** to `variables.bicep` after completing this exercise so the intentional issues remain for other labs. Use `Ctrl+Z` or run `git checkout sample-app/infra/variables.bicep`.
 
-> [!NOTE]
-> Screenshot placeholder: `![Right-sized cost estimate showing reduced monthly costs](../images/lab-09/lab-09-right-sized.png)`
+![Right-sized cost estimate showing reduced monthly costs](../images/lab-09/lab-09-right-sized.png)
 
 ## Verification Checkpoint
 

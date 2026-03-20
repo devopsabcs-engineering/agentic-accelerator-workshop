@@ -59,8 +59,7 @@ Detect a cryptographic vulnerability, apply the fix, and verify the issue is res
 
 8. Confirm the MD5 finding (CWE-328) no longer appears in the results.
 
-> [!NOTE]
-> Screenshot placeholder: `![Security remediation showing before and after scan results](../images/lab-10/lab-10-security-fix.png)`
+![Security remediation showing before and after scan results](../images/lab-10/lab-10-security-fix.png)
 
 ### Exercise 10.2: Accessibility Remediation Cycle
 
@@ -97,8 +96,7 @@ Detect a WCAG violation, apply the fix using the resolver agent, and verify the 
 
 7. Confirm the missing `lang` attribute finding no longer appears.
 
-> [!NOTE]
-> Screenshot placeholder: `![Accessibility fix showing lang attribute added to html element](../images/lab-10/lab-10-a11y-fix.png)`
+![Accessibility fix showing lang attribute added to html element](../images/lab-10/lab-10-a11y-fix.png)
 
 ### Exercise 10.3: Code Quality Remediation Cycle
 
@@ -135,11 +133,9 @@ Detect missing test coverage, generate tests, and verify improved coverage.
 
 7. Compare the coverage before and after adding the tests. The new tests should increase line and branch coverage for `utils.ts`.
 
-> [!NOTE]
-> Screenshot placeholder: `![Test generation and coverage improvement](../images/lab-10/lab-10-test-fix.png)`
+![Coverage comparison before and after test generation](../images/lab-10/lab-10-coverage-comparison.png)
 
-> [!NOTE]
-> Screenshot placeholder: `![Coverage comparison before and after test generation](../images/lab-10/lab-10-coverage-comparison.png)`
+![Coverage comparison before and after test generation](../images/lab-10/lab-10-coverage-comparison.png)
 
 ### Exercise 10.4: Commit Your Fixes
 

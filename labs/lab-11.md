@@ -117,8 +117,7 @@ Author the agent definition with YAML frontmatter and structured body sections.
 4. Save the file.
 5. Review existing agents in the `.github/agents/` directory for additional patterns and conventions. For example, open `.github/agents/security-reviewer-agent.agent.md` to see how tools and handoffs are configured.
 
-> [!NOTE]
-> Screenshot placeholder: `![Custom agent file open in VS Code editor](../images/lab-11/lab-11-agent-file.png)`
+![Custom agent file open in VS Code editor](../images/lab-11/lab-11-agent-file.png)
 
 ### Exercise 11.3: Test Your Agent
 
@@ -146,11 +145,9 @@ Invoke the custom agent in Copilot Chat and evaluate its response.
 
 5. Repeat until the agent produces structured, useful output for your chosen domain.
 
-> [!NOTE]
-> Screenshot placeholder: `![Custom agent responding with structured findings in Copilot Chat](../images/lab-11/lab-11-agent-test.png)`
+![Custom agent output showing rule IDs, severity, and remediation](../images/lab-11/lab-11-agent-output.png)
 
-> [!NOTE]
-> Screenshot placeholder: `![Custom agent output showing rule IDs, severity, and remediation](../images/lab-11/lab-11-agent-output.png)`
+![Custom agent output showing rule IDs, severity, and remediation](../images/lab-11/lab-11-agent-output.png)
 
 ### Exercise 11.4: Create a Companion Skill (Optional)
 

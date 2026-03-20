@@ -66,8 +66,7 @@ Click into an individual finding to see the full detail view.
 3. Compare this information to what you saw in Exercise 6.1 when examining the raw SARIF. The fields map directly: `ruleId` to Rule ID, `level` to Severity, `locations[]` to File path and Line number, `message.text` to the description.
 4. If the finding references a CWE or WCAG criterion, click the link to view the standard description.
 
-> [!NOTE]
-> Screenshot placeholder: `![Individual finding detail page](../images/lab-08/lab-08-finding-detail.png)`
+![Individual finding detail page](../images/lab-08/lab-08-finding-detail.png)
 
 ### Exercise 8.4: Explore Dependabot Alerts
 
@@ -85,8 +84,7 @@ Review dependency vulnerability alerts separately from code scanning.
 
 5. If no Dependabot alerts appear, this means your current dependencies have no known vulnerabilities at this time.
 
-> [!NOTE]
-> Screenshot placeholder: `![Dependabot alerts page](../images/lab-08/lab-08-dependabot.png)`
+![Dependabot alerts page](../images/lab-08/lab-08-dependabot.png)
 
 > [!TIP]
 > Dependabot alerts operate separately from SARIF uploads. SARIF-based code scanning covers application and infrastructure issues found by agents, while Dependabot covers known CVEs in third-party packages.
@@ -110,8 +108,7 @@ Practice the alert lifecycle by dismissing a finding and creating an issue from 
 6. Click **Create issue** (or use the kebab menu to find this option). GitHub creates a new Issue pre-populated with the finding details including the rule, file, and description.
 7. Review the created Issue. It contains enough context for a developer to understand and remediate the finding without returning to the Security tab.
 
-> [!NOTE]
-> Screenshot placeholder: `![Alert dismiss and issue creation dialog](../images/lab-08/lab-08-alert-management.png)`
+![Alert dismiss and issue creation dialog](../images/lab-08/lab-08-alert-management.png)
 
 ## Verification Checkpoint
 

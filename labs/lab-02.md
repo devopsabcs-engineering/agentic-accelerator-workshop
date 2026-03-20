@@ -133,9 +133,6 @@ Two handoff chains are central to this framework. Trace each one using the agent
 
 Both chains follow the same loop: detect an issue, hand off for remediation, hand back for verification.
 
-> [!NOTE]
-> Screenshot placeholder: `![Detector to Resolver handoff in Copilot Chat](../images/lab-02/lab-02-handoff-pattern.png)`
-
 ## Verification Checkpoint
 
 Before proceeding, verify:
