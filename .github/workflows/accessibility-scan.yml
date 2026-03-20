@@ -12,8 +12,6 @@
 #   - A11Y_THRESHOLD: minimum score to pass without warnings
 #   - A11Y_FAIL_THRESHOLD: score below which the workflow fails
 #   - SARIF category: accessibility-scan/<label>
-#
-# Lab references: Lab 04, Lab 07, Lab 08
 # ============================================================================
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: Accessibility Scan
@@ -130,12 +128,14 @@ jobs:
             const sourceFile = urlToSourceFile(page.url || "${{ matrix.scan-url.url }}");
             for (const violation of (page.violations || [])) {
               if (!rulesMap.has(violation.id)) {
+                const allTags = ["accessibility"].concat(violation.tags || []).slice(0, 10);
                 rulesMap.set(violation.id, {
                   id: violation.id,
                   shortDescription: { text: violation.help || violation.id },
                   fullDescription: { text: violation.description || "" },
-                  help: { text: violation.help || "", markdown: violation.helpUrl ? `${violation.help || ""}. [Learn more](${violation.helpUrl})` : violation.help || "" },
-                  properties: { tags: ["accessibility"].concat(violation.tags || []) }
+                  helpUri: violation.helpUrl || undefined,
+                  help: { text: violation.helpUrl ? `${violation.help || ""}. Learn more: ${violation.helpUrl}` : (violation.help || ""), markdown: violation.helpUrl ? `${violation.help || ""}. [Learn more](${violation.helpUrl})` : (violation.help || "") },
+                  properties: { tags: allTags }
                 });
               }
               const weight = impactToWeight[violation.impact] || 1;
@@ -179,8 +179,28 @@ jobs:
           sarif_file: a11y-results.sarif
           category: accessibility-scan/${{ matrix.scan-url.label }}
 
-      - name: Threshold gate
+      - name: Save results for threshold gate
         if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a11y-sarif-${{ matrix.scan-url.label }}
+          path: a11y-results.sarif
+          if-no-files-found: ignore
+
+  a11y-gate:
+    name: Accessibility — Threshold Gate
+    runs-on: ubuntu-latest
+    needs: a11y-scan
+    if: always()
+    steps:
+      - name: Download SARIF results
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: a11y-sarif-*
+          merge-multiple: true
+
+      - name: Evaluate thresholds
         run: |
           if [ -f a11y-results.sarif ]; then
             CRITICAL_COUNT=$(jq '[.runs[].results[] | select(.level == "error")] | length' a11y-results.sarif 2>/dev/null || echo "0")
@@ -198,4 +218,6 @@ jobs:
               echo "::error::Accessibility score $SCORE is below minimum threshold ${{ env.A11Y_FAIL_THRESHOLD }}"
               exit 1
             fi
+          else
+            echo "No SARIF results found — skipping threshold check"
           fi
