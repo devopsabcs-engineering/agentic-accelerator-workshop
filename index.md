@@ -1,20 +1,18 @@
 ---
-title: "Agentic Accelerator Workshop"
-description: "Learn to use AI-powered Accelerator agents — from Agents to Hero"
+layout: default
+title: Home
+nav_order: 0
+permalink: /
 ---
 
 # Agentic Accelerator Workshop
 
-> Learn to use AI-powered Accelerator agents — from Agents to Hero
+Welcome to the **Agentic Accelerator Workshop** — a hands-on, progressive workshop that teaches you how to integrate GitHub Copilot custom agents into your Accelerator workflows.
 
-This hands-on workshop teaches you how to integrate GitHub Copilot custom agents
-into your Accelerator workflows. You will configure security scanners, accessibility
-checkers, code quality analyzers, and FinOps cost gates, all powered by AI agents
-that produce SARIF-compliant findings visible in the GitHub Security tab.
+You will configure security scanners, accessibility checkers, code quality analyzers, and FinOps cost gates, all powered by AI agents that produce SARIF-compliant findings visible in the GitHub Security tab.
 
-By the end of this workshop you will be able to run automated security, accessibility,
-and code quality scans from your IDE and CI/CD pipelines, interpret SARIF output,
-and build your own custom agent.
+> [!NOTE]
+> This workshop is part of the [Agentic Accelerator Framework](https://github.com/devopsabcs-engineering/agentic-accelerator-framework).
 
 ## Who Is This For?
 
@@ -38,20 +36,61 @@ Before starting Lab 00, ensure you have the following:
 
 ## Labs
 
-Work through the labs in order. Each lab builds on the previous one.
+| # | Lab | Duration | Level |
+|---|-----|----------|-------|
+| 00 | [Prerequisites](labs/lab-00-setup.md) | 30 min | Beginner |
+| 01 | [Explore the Sample App](labs/lab-01.md) | 25 min | Beginner |
+| 02 | [Agents, Skills, and Instructions](labs/lab-02.md) | 20 min | Beginner |
+| 03 | [Security Scanning](labs/lab-03.md) | 40 min | Intermediate |
+| 04 | [Accessibility Scanning](labs/lab-04.md) | 35 min | Intermediate |
+| 05 | [Code Quality Analysis](labs/lab-05.md) | 35 min | Intermediate |
+| 06 | [Understanding SARIF Output](labs/lab-06.md) | 30 min | Intermediate |
+| 07 | [GitHub Actions Pipelines](labs/lab-07.md) | 40 min | Intermediate |
+| 08 | [GitHub Security Tab](labs/lab-08.md) | 25 min | Intermediate |
+| 09 | [FinOps Agents](labs/lab-09.md) | 45 min | Advanced |
+| 10 | [Agent Remediation](labs/lab-10.md) | 45 min | Advanced |
+| 11 | [Custom Agent Creation](labs/lab-11.md) | 45 min | Advanced |
 
-- [ ] [Lab 00 - Prerequisites and Environment Setup](labs/lab-00-setup.md) _(30 min, Beginner)_
-- [ ] [Lab 01 - Explore the Sample App](labs/lab-01.md) _(25 min, Beginner)_
-- [ ] [Lab 02 - Understanding Agents, Skills, and Instructions](labs/lab-02.md) _(20 min, Beginner)_
-- [ ] [Lab 03 - Security Scanning with Copilot Agents](labs/lab-03.md) _(40 min, Intermediate)_
-- [ ] [Lab 04 - Accessibility Scanning with Copilot Agents](labs/lab-04.md) _(35 min, Intermediate)_
-- [ ] [Lab 05 - Code Quality Analysis with Copilot Agents](labs/lab-05.md) _(35 min, Intermediate)_
-- [ ] [Lab 06 - Understanding SARIF Output](labs/lab-06.md) _(30 min, Intermediate)_
-- [ ] [Lab 07 - Setting Up GitHub Actions Pipelines](labs/lab-07.md) _(40 min, Intermediate)_
-- [ ] [Lab 08 - Viewing Results in GitHub Security Tab](labs/lab-08.md) _(25 min, Intermediate)_
-- [ ] [Lab 09 - FinOps Agents and Azure Cost Governance](labs/lab-09.md) _(45 min, Advanced)_ ⭐ Optional
-- [ ] [Lab 10 - Agent Remediation Workflows](labs/lab-10.md) _(45 min, Advanced)_
-- [ ] [Lab 11 - Creating Your Own Custom Agent](labs/lab-11.md) _(45 min, Advanced)_
+## Workshop Schedule
+
+### Half-Day (3 hours)
+
+| Time | Activity |
+|------|----------|
+| 0:00 – 0:30 | Lab 00: Prerequisites |
+| 0:30 – 0:55 | Lab 01: Explore the Sample App |
+| 0:55 – 1:15 | Lab 02: Agents, Skills, and Instructions |
+| 1:15 – 1:55 | Lab 03: Security Scanning |
+| 1:55 – 2:10 | Break |
+| 2:10 – 2:45 | Lab 04: Accessibility Scanning |
+| 2:45 – 3:00 | Lab 05: Code Quality Analysis (start) |
+
+### Full-Day (5.5 hours)
+
+| Time | Activity |
+|------|----------|
+| 0:00 – 0:30 | Lab 00: Prerequisites |
+| 0:30 – 0:55 | Lab 01: Explore the Sample App |
+| 0:55 – 1:15 | Lab 02: Agents, Skills, and Instructions |
+| 1:15 – 1:55 | Lab 03: Security Scanning |
+| 1:55 – 2:30 | Lab 04: Accessibility Scanning |
+| 2:30 – 2:45 | Break |
+| 2:45 – 3:20 | Lab 05: Code Quality Analysis |
+| 3:20 – 3:50 | Lab 06: Understanding SARIF Output |
+| 3:50 – 4:30 | Lab 07: GitHub Actions Pipelines |
+| 4:30 – 4:45 | Break |
+| 4:45 – 5:10 | Lab 08: GitHub Security Tab |
+
+### Extended (7.5 hours)
+
+| Time | Activity |
+|------|----------|
+| 0:00 – 5:10 | Half-Day + Full-Day labs (as above) |
+| 5:10 – 5:25 | Break |
+| 5:25 – 6:10 | Lab 09: FinOps Agents |
+| 6:10 – 6:55 | Lab 10: Agent Remediation |
+| 6:55 – 7:10 | Break |
+| 7:10 – 7:55 | Lab 11: Custom Agent Creation |
 
 ## Delivery Tiers
 
@@ -72,18 +111,20 @@ not block later labs.
 
 ## Getting Started
 
-1. Click **"Use this template"** at the top of this repository to create your
-   own copy.
-2. Clone the new repository to your local machine.
-3. Open the repository in VS Code.
-4. Start with [Lab 00 - Prerequisites and Environment Setup](labs/lab-00-setup.md).
+1. **Fork or use this template** to create your own workshop instance.
+2. Complete [Lab 00: Prerequisites](labs/lab-00-setup.md) to set up your environment.
+3. Work through the labs in order — each lab builds on the previous one.
 
-## Credits
+> **Tip**: This workshop is designed for GitHub Codespaces. Click **Code → Codespaces → New codespace** to get a pre-configured environment with all tools installed.
 
-This workshop is built on the
-[Agentic Accelerator Framework](https://github.com/devopsabcs-engineering/agentic-accelerator-framework),
-which provides the agents, skills, instructions, and sample application used
-throughout the labs.
+## Related Repositories
+
+| Repository | Description |
+|------------|-------------|
+| [Agentic Accelerator Framework](https://github.com/devopsabcs-engineering/agentic-accelerator-framework) | Agent definitions, instructions, skills, and CI/CD workflows |
+| [Accessibility Scan Workshop](https://devopsabcs-engineering.github.io/accessibility-scan-workshop/) | WCAG 2.2 accessibility scanning workshop |
+| [FinOps Scan Workshop](https://devopsabcs-engineering.github.io/finops-scan-workshop/) | Azure cost governance scanning workshop |
+| [Code Quality Scan Workshop](https://devopsabcs-engineering.github.io/code-quality-scan-workshop/) | Code quality scanning workshop |
 
 ## License
 

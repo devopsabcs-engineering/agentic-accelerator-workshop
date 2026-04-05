@@ -1,14 +1,31 @@
-theme: jekyll-theme-minimal
 title: "Agentic Accelerator Workshop"
 description: "Learn to use AI-powered Accelerator agents — from Agents to Hero"
+remote_theme: just-the-docs/just-the-docs
 baseurl: "/agentic-accelerator-workshop"
-plugins:
-  - jekyll-relative-links
-relative_links:
-  enabled: true
-  collections: true
+url: "https://devopsabcs-engineering.github.io"
+
+exclude:
+  - scripts/
+  - delivery/
+  - .devcontainer/
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - Gemfile.lock
+  - sample-app/
+  - solutions/
+  - validation-results.sarif
+  - apm.yml
+
 defaults:
   - scope:
       path: ""
     values:
       layout: "default"
+  - scope:
+      path: "images"
+    values:
+      nav_exclude: true
+
+nav_order_base: 0
+heading_anchors: true

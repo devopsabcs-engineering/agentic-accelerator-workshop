@@ -1,6 +1,7 @@
 ---
 title: "Agentic Accelerator Workshop"
 description: "Learn to use AI-powered Accelerator agents — from Agents to Hero"
+nav_exclude: true
 ---
 
 # Agentic Accelerator Workshop
