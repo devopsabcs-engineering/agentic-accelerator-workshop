@@ -5,6 +5,10 @@ nav_order: 0
 permalink: /
 ---
 
+<p align="center">
+  <img src="assets/branding/logo-128.png" alt="Agentic Accelerator Framework" width="100">
+</p>
+
 # Agentic Accelerator Workshop
 
 Welcome to the **Agentic Accelerator Workshop** — a hands-on, progressive workshop that teaches you how to integrate GitHub Copilot custom agents into your Accelerator workflows.
