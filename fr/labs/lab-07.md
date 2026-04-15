@@ -1,5 +1,6 @@
 ---
 nav_exclude: true
+lang: fr
 permalink: /fr/labs/lab-07
 title: "Lab 07 - Mise en place des pipelines GitHub Actions"
 description: "Passez en revue les workflows GitHub Actions de l'atelier, activez Actions dans votre dépôt, déclenchez des workflows en ouvrant une pull request et surveillez l'exécution dans l'onglet Actions."

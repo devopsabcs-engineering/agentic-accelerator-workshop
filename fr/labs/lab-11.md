@@ -1,5 +1,6 @@
 ---
 nav_exclude: true
+lang: fr
 permalink: /fr/labs/lab-11
 title: "Lab 11 - Créer votre propre agent personnalisé"
 description: "Concevez et construisez un agent GitHub Copilot personnalisé avec un frontmatter YAML, une sortie structurée et un skill compagnon optionnel pour une analyse spécifique à un domaine."

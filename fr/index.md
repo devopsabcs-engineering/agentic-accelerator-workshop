@@ -1,5 +1,6 @@
 ---
 nav_exclude: true
+lang: fr
 layout: default
 title: Accueil
 description: Atelier pratique et progressif pour intégrer les agents GitHub Copilot personnalisés dans vos flux de travail Accelerator.

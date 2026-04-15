@@ -1,5 +1,6 @@
 ---
 nav_exclude: true
+lang: fr
 permalink: /fr/labs/lab-10
 title: "Lab 10 - Workflows de remédiation par agents"
 description: "Réalisez des cycles complets Détection-Correction-Vérification en utilisant les agents de sécurité, d'accessibilité et de qualité de code pour remédier aux problèmes identifiés et confirmer les corrections."

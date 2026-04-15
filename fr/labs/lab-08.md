@@ -1,5 +1,6 @@
 ---
 nav_exclude: true
+lang: fr
 permalink: /fr/labs/lab-08
 title: "Lab 08 - Consultation des résultats dans l'onglet Sécurité de GitHub"
 description: "Naviguez dans l'onglet Sécurité de GitHub, filtrez les alertes Code Scanning par outil et sévérité, consultez les détails des résultats avec le contexte du code source, explorez les alertes Dependabot et gérez le cycle de vie des alertes."

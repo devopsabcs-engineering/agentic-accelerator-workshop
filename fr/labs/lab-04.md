@@ -1,5 +1,6 @@
 ---
 nav_exclude: true
+lang: fr
 permalink: /fr/labs/lab-04
 title: "Lab 04 - Analyse d'accessibilité avec les agents Copilot"
 description: "Exécutez le a11y-detector pour détecter les violations WCAG 2.2 Level AA, utilisez l'invite a11y-scan pour une analyse ciblée, et essayez le transfert vers le a11y-resolver pour des corrections automatisées."

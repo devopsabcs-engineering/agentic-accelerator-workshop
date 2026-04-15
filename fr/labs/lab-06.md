@@ -1,5 +1,6 @@
 ---
 nav_exclude: true
+lang: fr
 permalink: /fr/labs/lab-06
 title: "Lab 06 - Comprendre la sortie SARIF"
 description: "Explorer la structure JSON SARIF v2.1.0, naviguer dans les résultats avec l'extension SARIF Viewer, apprendre les préfixes de catégories et la correspondance des niveaux de sévérité, et comprendre comment GitHub ingère les résultats SARIF."

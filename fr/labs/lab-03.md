@@ -1,5 +1,6 @@
 ---
 nav_exclude: true
+lang: fr
 permalink: /fr/labs/lab-03
 title: "Lab 03 - Analyse de sécurité avec les agents Copilot"
 description: "Exécutez les agents security-reviewer, iac-security et supply-chain-security pour détecter les vulnérabilités OWASP Top 10, les erreurs de configuration d'infrastructure et les risques liés aux dépendances dans l'application exemple."

@@ -1,5 +1,6 @@
 ---
 nav_exclude: true
+lang: fr
 permalink: /fr/labs/lab-02
 title: "Lab 02 - Comprendre les agents, les skills et les instructions"
 description: "Distinguer les agents, les skills, les instructions et les prompts. Apprendre les modèles de conception orchestrateur et détecteur/résolveur."

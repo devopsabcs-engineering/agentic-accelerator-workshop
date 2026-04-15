@@ -22,3 +22,14 @@
     }
   }
 </style>
+
+{% if page.lang == 'fr' %}
+<style>
+  /* Hide English sidebar on French pages */
+  .side-bar { display: none !important; }
+  .main { margin-left: 0 !important; }
+  @media (min-width: 50rem) {
+    .main { max-width: none; padding-left: 2rem; }
+  }
+</style>
+{% endif %}
