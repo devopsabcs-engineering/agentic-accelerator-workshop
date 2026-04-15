@@ -25,11 +25,42 @@
 
 {% if page.lang == 'fr' %}
 <style>
-  /* Hide English sidebar on French pages */
-  .side-bar { display: none !important; }
-  .main { margin-left: 0 !important; }
-  @media (min-width: 50rem) {
-    .main { max-width: none; padding-left: 2rem; }
-  }
+  /* Hide English nav items immediately to prevent flash */
+  .site-nav .nav-list { visibility: hidden; }
 </style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Point site title to French homepage
+  var siteTitle = document.querySelector('.site-title');
+  if (siteTitle) {
+    siteTitle.href = '{{ site.baseurl }}/fr/';
+  }
+
+  // Replace English nav with French nav
+  var nav = document.querySelector('.site-nav .nav-list');
+  if (nav) {
+    var frPages = [
+      {% assign fr_pages = site.pages | where: "lang", "fr" | sort: "permalink" %}{% for p in fr_pages %}{ title: {{ p.title | jsonify }}, url: "{{ p.permalink | prepend: site.baseurl }}" },
+      {% endfor %}
+    ];
+
+    nav.innerHTML = '';
+    var currentPath = window.location.pathname.replace(/\/$/,'');
+    frPages.forEach(function(p) {
+      var li = document.createElement('li');
+      li.className = 'nav-list-item';
+      var a = document.createElement('a');
+      a.href = p.url;
+      a.className = 'nav-list-link';
+      if (currentPath === p.url.replace(/\/$/,'')) {
+        a.classList.add('active');
+      }
+      a.textContent = p.title;
+      li.appendChild(a);
+      nav.appendChild(li);
+    });
+    nav.style.visibility = 'visible';
+  }
+});
+</script>
 {% endif %}
