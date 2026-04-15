@@ -1,4 +1,5 @@
 ---
+nav_exclude: true
 permalink: /fr/labs/lab-01
 title: "Lab 01 - Explorer l'application exemple"
 description: "Parcourir la structure du dépôt de l'atelier, identifier les quatre domaines d'agents, exécuter l'application exemple localement et découvrir les vulnérabilités intentionnelles."

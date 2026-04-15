@@ -1,4 +1,5 @@
 ---
+nav_exclude: true
 permalink: /fr/labs/lab-09
 title: "Lab 09 - Agents FinOps et gouvernance des coûts Azure"
 description: "Utilisez les agents FinOps pour estimer les coûts d'infrastructure, appliquer la conformité des tags, mettre en place des seuils budgétaires et explorer les recommandations de dimensionnement pour l'application exemple."

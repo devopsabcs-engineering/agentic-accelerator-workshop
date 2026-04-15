@@ -1,4 +1,5 @@
 ---
+nav_exclude: true
 permalink: /fr/labs/lab-00-setup
 title: "Lab 00 - Prérequis et configuration de l'environnement"
 description: "Installer les outils requis, les extensions VS Code, créer votre dépôt d'atelier à partir du modèle et vérifier GitHub Copilot Chat."

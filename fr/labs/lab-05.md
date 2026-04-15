@@ -1,4 +1,5 @@
 ---
+nav_exclude: true
 permalink: /fr/labs/lab-05
 title: "Lab 05 - Analyse de la qualité du code avec les agents Copilot"
 description: "Mesurer la couverture de tests, exécuter le code-quality-detector pour détecter les problèmes de qualité, utiliser le test-generator pour créer des tests unitaires et observer l'amélioration de la couverture."
