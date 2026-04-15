@@ -1,0 +1,59 @@
+{%- comment -%}
+  Override of just-the-docs sidebar component.
+  French pages (lang: fr) get a French navigation sidebar.
+  English pages get the original theme sidebar.
+{%- endcomment -%}
+
+{%- if page.lang == 'fr' -%}
+<header class="side-bar">
+  <div class="site-header">
+    <a href="{{ '/fr/' | relative_url }}" class="site-title lh-tight">
+      {{ site.title }}
+    </a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+    <ul class="nav-list">
+      {%- assign fr_pages = site.pages | where: "lang", "fr" | sort: "permalink" -%}
+      {%- for p in fr_pages -%}
+      <li class="nav-list-item">
+        <a href="{{ p.permalink | prepend: site.baseurl }}" class="nav-list-link{% if page.permalink == p.permalink %} active{% endif %}">
+          {{ p.title }}
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </nav>
+  <div class="d-md-block d-none site-footer">
+    {%- capture nav_footer_custom -%}{%- include nav_footer_custom.html -%}{%- endcapture -%}
+    {%- if nav_footer_custom != "" -%}
+      {{ nav_footer_custom }}
+    {%- else -%}
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    {%- endif -%}
+  </div>
+</header>
+
+{%- else -%}
+
+<header class="side-bar">
+  <div class="site-header">
+    <a href="{{ '/' | relative_url }}" class="site-title lh-tight">{% include title.html %}</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+  {% include_cached components/site_nav.html %}
+  <div class="d-md-block d-none site-footer">
+    {%- capture nav_footer_custom -%}{%- include nav_footer_custom.html -%}{%- endcapture -%}
+    {%- if nav_footer_custom != "" -%}
+      {{ nav_footer_custom }}
+    {%- else -%}
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    {%- endif -%}
+  </div>
+</header>
+
+{%- endif -%}
