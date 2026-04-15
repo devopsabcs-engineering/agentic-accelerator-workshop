@@ -121,6 +121,8 @@ not block later labs.
 
 > **Tip**: This workshop is designed for GitHub Codespaces. Click **Code → Codespaces → New codespace** to get a pre-configured environment with all tools installed.
 
+> 🇫🇷 **[Version française](fr/)**
+
 ## Related Repositories
 
 | Repository | Description |
