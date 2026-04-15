@@ -8,13 +8,13 @@ nav_order: 0
 permalink: /fr/
 ---
 
+> 🇬🇧 **[English version](../)**
+
 <p align="center">
   <img src="../assets/branding/logo-128.png" alt="Agentic Accelerator Framework" width="100">
 </p>
 
 # Agentic Accelerator Workshop
-
-> 🇬🇧 **[English version](../)**
 
 Bienvenue dans l'**Agentic Accelerator Workshop** — un atelier pratique et progressif qui vous apprend à intégrer les agents GitHub Copilot personnalisés dans vos flux de travail Accelerator.
 
